@@ -50,9 +50,9 @@ This guide explains the first portfolio version in beginner-friendly steps.
 
 ## Add Contact Details
 
-- Open `index.html` and find `<section id="contact">`.
-- Replace the placeholder only with information Chris intentionally wants public.
-- Safe early options include a public portfolio email, GitHub profile, or LinkedIn profile.
+- The contact section currently includes the approved public portfolio email `kurisuniel@gmail.com`.
+- Open `index.html` and find `<section id="contact">` when that address needs to change.
+- Add GitHub or LinkedIn only after Chris confirms which profiles should be public.
 - Remember that every value placed in a static page is publicly readable.
 
 ## Add Images Later

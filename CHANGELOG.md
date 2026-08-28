@@ -9,6 +9,7 @@ All notable project changes are recorded here.
 - Responsive single-page portfolio for Blender 3D, Unity, and software work.
 - Desktop side navigation and a mobile-friendly top navigation based on the draft layout sketches.
 - Accessible mobile navigation, theme selection, skip link, and semantic page sections.
+- Approved public portfolio email and direct email action in the contact section.
 - Beginner-friendly setup and customization walkthrough.
 - Root-level AI agent instructions and task-continuity documentation.
 
@@ -21,5 +22,5 @@ All notable project changes are recorded here.
 
 ### Deferred
 
-- Real project content and public contact links.
+- Real project content and approved public social-profile links.
 - Backend, database, authentication, admin uploads, saved messages, and persistent analytics.

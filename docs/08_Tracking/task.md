@@ -19,11 +19,13 @@ Deliver the first simple static portfolio and prepare it for GitHub Pages.
 - Draft homepage and model-showcase sketches incorporated as layout references.
 - Dependency-free HTTP, JavaScript syntax, CSS structure, asset-reference, ID, anchor, and secret-pattern checks.
 - Initial branch standardized as `main` and reviewed files prepared for the first commit.
+- CV reviewed as private source material; only the explicitly approved portfolio email was selected for publication.
 
 ## Remaining
 
 - Chris manually reviews the page in a browser and supplies any preferred visual adjustments.
-- Replace placeholder project and contact content with real public information.
+- Chris chooses which CV-derived summary, skills, projects, experience, education, and social profiles should be public.
+- Replace placeholder project content with approved real information.
 - Push the `main` branch to a GitHub repository and enable GitHub Pages.
 
 ## Deferred

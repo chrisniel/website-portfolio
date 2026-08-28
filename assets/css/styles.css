@@ -320,8 +320,7 @@ main,
 }
 
 .skill-list li,
-.project-status,
-.contact-note {
+.project-status {
   padding: 0.45rem 0.8rem;
   border: 1px solid var(--line);
   border-radius: 999px;
@@ -513,11 +512,22 @@ main,
   color: var(--accent);
 }
 
-.contact-note {
-  display: inline-block;
+.contact-button {
   margin-top: 1rem;
-  border-color: color-mix(in srgb, var(--background) 30%, transparent);
-  color: var(--background);
+  background: var(--background);
+  color: var(--text);
+}
+
+.contact-button:hover {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.contact-email {
+  display: block;
+  margin-top: 0.8rem;
+  color: color-mix(in srgb, var(--background) 72%, transparent);
+  font-size: 0.86rem;
 }
 
 .site-footer {

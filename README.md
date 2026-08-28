@@ -4,7 +4,7 @@ A simple static portfolio for Chris Daniel's Blender 3D, Unity game development,
 
 ## Current Status
 
-The first responsive landing page is implemented. Project images, project links, and public contact details are intentionally marked as coming soon rather than filled with invented information.
+The first responsive landing page is implemented. Chris's approved portfolio email is available, while project images, project links, and social profiles remain clearly marked or omitted rather than filled with invented information.
 
 ## Technology
 
@@ -42,7 +42,7 @@ Then visit `http://localhost:8000` and stop the server with `Ctrl+C`.
 
 1. Replace the three “Projects coming soon” cards in `index.html` with real project information.
 2. Add optimized images under `assets/images/` when needed.
-3. Replace the contact placeholder with public links that Chris wants visitors to use.
+3. Add only the public social links that Chris wants visitors to use.
 4. Keep private email addresses, passwords, and API tokens out of the repository unless they are intentionally public.
 
 See the [static portfolio walkthrough](docs/07_Walkthrough/static-portfolio-guide.md) for detailed guidance.
@@ -61,7 +61,7 @@ This repository has no remote yet, so publishing must wait until Chris creates o
 
 ## Known Limitations
 
-- The project cards and contact details are placeholders.
+- The project cards and social-profile links are placeholders or intentionally omitted.
 - No form submissions or visitor data are stored.
 - Large 3D models and videos have not been integrated.
 - Automated browser testing and deployment automation are not configured yet.
