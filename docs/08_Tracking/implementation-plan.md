@@ -48,3 +48,31 @@ Create a small, beginner-friendly portfolio website for Chris Daniel that can be
 - Persistent per-project analytics.
 - Live 3D model rendering and large video hosting.
 - ASP.NET Core API and database.
+
+---
+
+## Approved Content And Asset Readiness Update
+
+### Goal
+
+Replace generic homepage placeholders with approved CV-backed information and prepare clear folders and documentation for future images and interactive 3D models.
+
+### Scope
+
+1. Add the BantayGabi, Kumpuni, and Minecraft server administration projects.
+2. Add grouped game-development, technical-art, and development/system skills.
+3. Strengthen the About section using verified experience without inflated claims.
+4. Add compact professional experience and ICT education, including Chris's other approved roles.
+5. Add the primary `ChrisNiel` GitHub profile and omit LinkedIn.
+6. Add asset instructions for project images, background images, poster images, and optimized `.glb` files.
+7. Document each `docs/` folder with only practical project files.
+8. Keep `<model-viewer>` deferred until one real model/poster pair is available.
+
+### Additional Acceptance Criteria
+
+- Project cards use verified names, roles, status, and descriptions from the CV.
+- Private phone, location, and older email remain absent.
+- External GitHub links open safely in a new tab.
+- Skills and experience remain readable on phone and desktop layouts.
+- Asset documentation explains naming, optimization, poster images, and licensing.
+- The empty, untracked `main-files/` scaffold is not used by the live website.

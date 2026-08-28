@@ -48,6 +48,8 @@ This guide explains the first portfolio version in beginner-friendly steps.
 - Add meaningful alternative text when a real project image is introduced.
 - Do not claim a project is playable or downloadable unless the link has been verified.
 
+The first three cards now contain verified CV-backed information for BantayGabi, Kumpuni, and the Minecraft Server Administration Portfolio. Future edits should keep the descriptions accurate as those projects change.
+
 ## Add Contact Details
 
 - The contact section currently includes the approved public portfolio email `kurisuniel@gmail.com`.
@@ -63,6 +65,27 @@ This guide explains the first portfolio version in beginner-friendly steps.
 - Resize images to the largest size the page actually displays.
 - Avoid committing raw multi-gigabyte creative source files solely for display.
 
+Use the prepared folders:
+
+- `assets/images/projects/` for thumbnails, screenshots, and renders.
+- `assets/images/backgrounds/` for subtle decorative backgrounds.
+- `assets/images/posters/` for the preview displayed before an interactive model loads.
+- `assets/models/` for optimized public `.glb` models.
+
+Before publishing any asset, add it to `docs/04_Source-Design-Documents/asset-register.md`.
+
+## Prepare The First 3D Showcase
+
+- Choose one model rather than several.
+- Export an optimized `.glb` into `assets/models/`.
+- Export a lightweight matching WebP poster into `assets/images/posters/`.
+- Supply a model title and a short description for visitors who cannot use the interactive viewer.
+- Confirm the model and textures are safe and permitted to publish.
+- Test the files in the official `<model-viewer>` editor and on a phone.
+- Only then implement the component using `docs/03_Feature-Plans/3d-showcase-plan.md`.
+
+No cache file needs to be created manually. Normal browser caching will be used when the files are eventually hosted.
+
 ## Manual Verification
 
 - Use the navigation links to reach Projects, About, and Contact.
@@ -71,6 +94,8 @@ This guide explains the first portfolio version in beginner-friendly steps.
 - Press `Tab` repeatedly and confirm the focused link or button has a visible outline.
 - Press `Escape` while the mobile menu is open and confirm it closes.
 - Confirm no project, contact, or social link is presented as real before Chris supplies it.
+- Confirm the BantayGabi and Kumpuni cards are labeled ongoing.
+- Open the primary GitHub link and Minecraft case-study link in a new tab.
 
 ## Features Intentionally Deferred
 
@@ -80,6 +105,10 @@ This guide explains the first portfolio version in beginner-friendly steps.
 - Persistent click/view analytics.
 - Direct browser uploads.
 - Live 3D model and large video delivery.
+
+## Unused Local Scaffold
+
+`main-files/` is an empty local folder tree from the earlier Flutter/ASP.NET idea. The static website does not read from it, and Git does not track empty directories. New website work belongs at the repository root or under `assets/`.
 
 ## Draft Design References
 

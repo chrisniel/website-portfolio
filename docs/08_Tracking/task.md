@@ -2,12 +2,11 @@
 
 ## Current Goal
 
-Deliver the first simple static portfolio and prepare it for GitHub Pages.
+Add approved professional content and prepare the static portfolio for real images and 3D assets.
 
 ## In Progress
 
-- Build the initial HTML, CSS, and JavaScript files.
-- Align repository documentation and configuration with the static-only decision.
+- Chris reviews the expanded page and chooses the first real project images and 3D model/poster pair.
 
 ## Completed
 
@@ -20,12 +19,18 @@ Deliver the first simple static portfolio and prepare it for GitHub Pages.
 - Dependency-free HTTP, JavaScript syntax, CSS structure, asset-reference, ID, anchor, and secret-pattern checks.
 - Initial branch standardized as `main` and reviewed files prepared for the first commit.
 - CV reviewed as private source material; only the explicitly approved portfolio email was selected for publication.
+- Approved CV-backed projects, skills, About content, all compact professional roles, and ICT education added.
+- Primary `ChrisNiel` GitHub profile and Minecraft case-study link added; LinkedIn omitted.
+- Asset folders and practical documentation created for project media and the future 3D showcase.
+- `main-files/` confirmed as unused and untracked by the active static website.
+- HTTP delivery, JavaScript syntax, CSS structure, internal navigation, GitHub link safety, privacy, documentation presence, and deferred-3D checks passed.
 
 ## Remaining
 
-- Chris manually reviews the page in a browser and supplies any preferred visual adjustments.
-- Chris chooses which CV-derived summary, skills, projects, experience, education, and social profiles should be public.
-- Replace placeholder project content with approved real information.
+- Chris manually reviews the expanded page and supplies any wording or visual adjustments.
+- Add approved project images and record them in the asset register.
+- Provide one optimized `.glb`, one matching poster, title, description, and publishing permission.
+- Implement and test `<model-viewer>` only after the asset pair exists.
 - Push the `main` branch to a GitHub repository and enable GitHub Pages.
 
 ## Deferred

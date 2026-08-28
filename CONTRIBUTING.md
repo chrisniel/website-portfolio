@@ -15,6 +15,8 @@ This is Chris Daniel's personal portfolio and learning project.
 - Do not add a framework, package, backend, database, or paid service without Chris's approval.
 - Do not commit secrets or private information.
 - Optimize large images, models, and videos before publishing.
+- Record asset ownership and licenses in `docs/04_Source-Design-Documents/asset-register.md`.
+- Keep live website files at the repository root and under `assets/`; do not add new work under the unused `main-files/` scaffold.
 
 ## Verify A Change
 
