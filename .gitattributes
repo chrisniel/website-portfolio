@@ -1,0 +1,18 @@
+# Normalize source and documentation text files.
+* text=auto eol=lf
+
+# Large editable 3D source files and packaged models.
+*.blend filter=lfs diff=lfs merge=lfs -text
+*.blend1 filter=lfs diff=lfs merge=lfs -text
+*.fbx filter=lfs diff=lfs merge=lfs -text
+*.glb filter=lfs diff=lfs merge=lfs -text
+
+# Large portfolio video formats.
+*.mp4 filter=lfs diff=lfs merge=lfs -text
+*.mov filter=lfs diff=lfs merge=lfs -text
+*.webm filter=lfs diff=lfs merge=lfs -text
+
+# Layered creative source files and Unity export packages.
+*.psd filter=lfs diff=lfs merge=lfs -text
+*.kra filter=lfs diff=lfs merge=lfs -text
+*.unitypackage filter=lfs diff=lfs merge=lfs -text
