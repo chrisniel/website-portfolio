@@ -14,3 +14,7 @@ Example pair:
 assets/models/kumpuni-toolbox.glb
 assets/images/posters/kumpuni-toolbox-poster.webp
 ```
+
+The active library includes rendered gate and house views named with the model identifier plus a
+view such as `-front`, `-angle`, `-aerial`, or `-wide`. Keep each image descriptive, WebP-compressed,
+and recorded in the asset register.

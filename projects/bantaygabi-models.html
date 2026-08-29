@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Interactive BantayGabi 3D model library featuring web-ready assets by Chris Daniel."
+    >
+    <title>BantayGabi 3D Models | Chris Daniel</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <script src="../assets/js/main.js" defer></script>
+    <script src="../assets/js/term-definitions.js" defer></script>
+  </head>
+  <body class="detail-page">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="../index.html#top" aria-label="Chris Daniel, portfolio home">
+          <span class="brand-mark" aria-hidden="true">CD</span>
+          <span>Chris Daniel</span>
+        </a>
+
+        <div class="header-actions">
+          <button
+            class="icon-button menu-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="primary-navigation"
+          >
+            <span class="sr-only">Open navigation</span>
+            <span class="menu-icon" aria-hidden="true"></span>
+          </button>
+
+          <nav id="primary-navigation" class="primary-navigation" aria-label="Primary navigation">
+            <a href="../index.html#projects">Projects</a>
+            <a href="../index.html#skills">Skills</a>
+            <a href="../index.html#about">About</a>
+            <a href="../index.html#contact">Contact</a>
+          </nav>
+
+          <button class="icon-button theme-toggle" type="button" aria-label="Switch to dark theme">
+            <span class="theme-icon" aria-hidden="true">☾</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="detail-hero section">
+        <div class="container detail-heading">
+          <a class="back-link" href="bantaygabi.html">
+            <span aria-hidden="true">←</span> BantayGabi overview
+          </a>
+          <p class="eyebrow">3D asset library · In development</p>
+          <h1>BantayGabi 3D Models</h1>
+          <p class="detail-intro">
+            Explore selected environment assets from BantayGabi and the technical-art work used to
+            prepare them for Unity and an interactive browser preview.
+          </p>
+          <p class="term-hint">Highlighted technical terms include an optional plain-language explanation.</p>
+          <ul class="skill-list" aria-label="Model-library tools and formats">
+            <li><button class="term-button" type="button" data-term="unity">Unity</button></li>
+            <li><button class="term-button" type="button" data-term="blender">Blender</button></li>
+            <li><button class="term-button" type="button" data-term="glb">GLB</button></li>
+            <li><button class="term-button" type="button" data-term="technical-art">Technical Art</button></li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="model-viewer" class="section section-muted" aria-labelledby="viewer-title">
+        <div class="container" data-model-library>
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Choose a model</p>
+              <h2 id="viewer-title" data-model-viewer-title>Subdivision Gate</h2>
+            </div>
+            <p>
+              Choose an asset, compare its available rendered views, or load the interactive model
+              to rotate it and inspect the form from different angles.
+            </p>
+          </div>
+
+          <div class="model-selector" role="group" aria-label="Choose a BantayGabi 3D model">
+            <button
+              class="model-selector-card is-active"
+              type="button"
+              data-model-select
+              data-model-id="subdivision-gate"
+              data-model-category="Environment asset 01"
+              data-model-title="Subdivision Gate"
+              data-model-description="A wide metal-and-wood gate prepared in Unity and exported as a self-contained web model."
+              data-model-src="../assets/models/bantaygabi-subdivision-gate.glb"
+              data-model-poster="../assets/images/posters/bantaygabi-subdivision-gate-poster.webp"
+              data-model-alt="Interactive 3D model of a dark metal subdivision gate with horizontal wooden panels"
+              data-model-angle-1-src="../assets/images/posters/bantaygabi-subdivision-gate-front.webp"
+              data-model-angle-1-alt="Straight front render of the subdivision gate"
+              data-model-angle-1-label="Front render"
+              data-model-angle-2-src="../assets/images/posters/bantaygabi-subdivision-gate-wide.webp"
+              data-model-angle-2-alt="Wide perspective render of the subdivision gate"
+              data-model-angle-2-label="Perspective render"
+              data-model-triangles="7,464"
+              data-model-vertices="28,016"
+              data-model-materials="2"
+              data-model-size="7.15 MB"
+              aria-pressed="true"
+            >
+              <img src="../assets/images/posters/bantaygabi-subdivision-gate-poster.webp" alt="">
+              <span>
+                <small>Environment asset 01</small>
+                Subdivision Gate
+              </span>
+            </button>
+
+            <button
+              class="model-selector-card"
+              type="button"
+              data-model-select
+              data-model-id="house-01"
+              data-model-category="Environment asset 02"
+              data-model-title="Two-Storey House"
+              data-model-description="A compact two-storey residential building with metal window grilles, warm interior lighting, and a layered roofline."
+              data-model-src="../assets/models/bantaygabi-house-01.glb"
+              data-model-poster="../assets/images/posters/bantaygabi-house-01-angle.webp"
+              data-model-alt="Interactive 3D model of a compact two-storey concrete house"
+              data-model-angle-1-src="../assets/images/posters/bantaygabi-house-01-front.webp"
+              data-model-angle-1-alt="Front render of a compact two-storey concrete house"
+              data-model-angle-1-label="Front render"
+              data-model-triangles="1,708"
+              data-model-vertices="5,124"
+              data-model-materials="11"
+              data-model-size="8.26 MB"
+              aria-pressed="false"
+            >
+              <img loading="lazy" src="../assets/images/posters/bantaygabi-house-01-angle.webp" alt="">
+              <span>
+                <small>Environment asset 02</small>
+                Two-Storey House
+              </span>
+            </button>
+
+            <button
+              class="model-selector-card"
+              type="button"
+              data-model-select
+              data-model-id="house-04"
+              data-model-category="Environment asset 03"
+              data-model-title="Compact House"
+              data-model-description="A single-storey concrete home with a corrugated roof, barred windows, and a simple residential silhouette."
+              data-model-src="../assets/models/bantaygabi-house-04.glb"
+              data-model-poster="../assets/images/posters/bantaygabi-house-04-angle.webp"
+              data-model-alt="Interactive 3D model of a compact single-storey concrete house"
+              data-model-angle-1-src="../assets/images/posters/bantaygabi-house-04-front.webp"
+              data-model-angle-1-alt="Front render of a compact single-storey concrete house"
+              data-model-angle-1-label="Front render"
+              data-model-triangles="828"
+              data-model-vertices="2,484"
+              data-model-materials="10"
+              data-model-size="7.59 MB"
+              aria-pressed="false"
+            >
+              <img loading="lazy" src="../assets/images/posters/bantaygabi-house-04-angle.webp" alt="">
+              <span>
+                <small>Environment asset 03</small>
+                Compact House
+              </span>
+            </button>
+
+            <button
+              class="model-selector-card"
+              type="button"
+              data-model-select
+              data-model-id="house-05"
+              data-model-category="Environment asset 04"
+              data-model-title="Modern House"
+              data-model-description="A two-storey residence with an offset balcony, concrete forms, wood accents, and deep exterior shadows."
+              data-model-src="../assets/models/bantaygabi-house-05.glb"
+              data-model-poster="../assets/images/posters/bantaygabi-house-05-angle.webp"
+              data-model-alt="Interactive 3D model of a modern two-storey concrete house with a balcony"
+              data-model-angle-1-src="../assets/images/posters/bantaygabi-house-05-front.webp"
+              data-model-angle-1-alt="Front render of a modern two-storey house with a balcony"
+              data-model-angle-1-label="Front render"
+              data-model-triangles="1,274"
+              data-model-vertices="3,818"
+              data-model-materials="12"
+              data-model-size="8.25 MB"
+              aria-pressed="false"
+            >
+              <img loading="lazy" src="../assets/images/posters/bantaygabi-house-05-angle.webp" alt="">
+              <span>
+                <small>Environment asset 04</small>
+                Modern House
+              </span>
+            </button>
+
+            <button
+              class="model-selector-card"
+              type="button"
+              data-model-select
+              data-model-id="large-house"
+              data-model-category="Environment asset 05"
+              data-model-title="Large Residential House"
+              data-model-description="A larger residential compound with two levels, a terrace, exterior stairs, boundary walls, and a water tank."
+              data-model-src="../assets/models/bantaygabi-large-house.glb"
+              data-model-poster="../assets/images/posters/bantaygabi-large-house-aerial.webp"
+              data-model-alt="Interactive 3D model of a large two-storey residential compound"
+              data-model-angle-1-src="../assets/images/posters/bantaygabi-large-house-front.webp"
+              data-model-angle-1-alt="Front render of a large two-storey residential compound"
+              data-model-angle-1-label="Front render"
+              data-model-angle-2-src="../assets/images/posters/bantaygabi-large-house-angle.webp"
+              data-model-angle-2-alt="Angled render of a large residential compound and courtyard"
+              data-model-angle-2-label="Courtyard render"
+              data-model-triangles="2,594"
+              data-model-vertices="7,734"
+              data-model-materials="20"
+              data-model-size="8.41 MB"
+              aria-pressed="false"
+            >
+              <img loading="lazy" src="../assets/images/posters/bantaygabi-large-house-aerial.webp" alt="">
+              <span>
+                <small>Environment asset 05</small>
+                Large Residential House
+              </span>
+            </button>
+          </div>
+
+          <div class="project-gallery" data-project-gallery>
+            <div
+              class="showcase-stage"
+              data-gallery-stage
+              data-model-showcase
+              data-model-src="../assets/models/bantaygabi-subdivision-gate.glb"
+              data-model-poster="../assets/images/posters/bantaygabi-subdivision-gate-poster.webp"
+              data-model-alt="Interactive 3D model of a dark metal subdivision gate with horizontal wooden panels"
+              data-model-script="https://ajax.googleapis.com/ajax/libs/model-viewer/4.3.1/model-viewer.min.js"
+            >
+              <img
+                class="showcase-media"
+                data-gallery-image
+                src="../assets/images/posters/bantaygabi-subdivision-gate-poster.webp"
+                alt="Rendered front view of a dark metal subdivision gate with wooden panels"
+              >
+              <div class="showcase-overlay" data-model-overlay>
+                <button class="button button-primary showcase-load" type="button" data-load-model>
+                  Load interactive 3D model
+                </button>
+                <p class="showcase-status" data-model-status aria-live="polite">
+                  The 3D file downloads only after you select this button.
+                </p>
+              </div>
+              <button class="model-close-button" type="button" data-close-model hidden>
+                Close 3D <span aria-hidden="true">×</span>
+              </button>
+              <noscript>
+                <p class="showcase-noscript">Enable JavaScript to use the interactive 3D viewer.</p>
+              </noscript>
+            </div>
+
+            <div class="gallery-thumbnails" aria-label="Selected model showcase choices">
+              <button
+                class="gallery-thumb is-active"
+                type="button"
+                data-gallery-mode="model"
+                data-gallery-src="../assets/images/posters/bantaygabi-subdivision-gate-poster.webp"
+                data-gallery-alt="Rendered front view of a dark metal subdivision gate with wooden panels"
+                aria-pressed="true"
+              >
+                <img src="../assets/images/posters/bantaygabi-subdivision-gate-poster.webp" alt="">
+                <span data-model-view-label>3D model</span>
+              </button>
+              <button
+                class="gallery-thumb"
+                type="button"
+                data-gallery-mode="image"
+                data-model-angle-choice
+                data-gallery-src="../assets/images/posters/bantaygabi-subdivision-gate-front.webp"
+                data-gallery-alt="Straight front render of the subdivision gate"
+                aria-pressed="false"
+              >
+                <img
+                  data-model-angle-image
+                  src="../assets/images/posters/bantaygabi-subdivision-gate-front.webp"
+                  alt=""
+                >
+                <span data-model-angle-label>Front render</span>
+              </button>
+              <button
+                class="gallery-thumb"
+                type="button"
+                data-gallery-mode="image"
+                data-model-angle-choice
+                data-gallery-src="../assets/images/posters/bantaygabi-subdivision-gate-wide.webp"
+                data-gallery-alt="Wide perspective render of the subdivision gate"
+                aria-pressed="false"
+              >
+                <img
+                  data-model-angle-image
+                  src="../assets/images/posters/bantaygabi-subdivision-gate-wide.webp"
+                  alt=""
+                >
+                <span data-model-angle-label>Perspective render</span>
+              </button>
+              <button
+                class="gallery-thumb"
+                type="button"
+                data-gallery-mode="image"
+                data-model-angle-choice
+                data-gallery-src=""
+                data-gallery-alt=""
+                aria-pressed="false"
+                hidden
+              >
+                <img data-model-angle-image alt="">
+                <span data-model-angle-label>Additional render</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="model-details" class="section" aria-labelledby="library-title">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow" data-model-category>Environment asset 01</p>
+              <h2 id="library-title" data-model-detail-title>Subdivision Gate</h2>
+            </div>
+            <p>
+              These selected structures establish the residential scale, silhouettes, and visual
+              language of BantayGabi's neighborhood.
+            </p>
+          </div>
+
+          <div class="model-detail-panel">
+            <img
+              data-model-detail-image
+              src="../assets/images/posters/bantaygabi-subdivision-gate-poster.webp"
+              alt="Subdivision gate model poster"
+            >
+            <div class="model-detail-content">
+              <p data-model-detail-description>
+                A wide metal-and-wood gate prepared in Unity and exported as a self-contained web
+                model.
+              </p>
+              <dl class="fact-list">
+                <div><dt>Triangles</dt><dd data-model-triangles>7,464</dd></div>
+                <div><dt>Vertices</dt><dd data-model-vertices>28,016</dd></div>
+                <div><dt>Materials</dt><dd data-model-materials>2</dd></div>
+                <div>
+                  <dt><button class="term-button term-button-inline" type="button" data-term="glb">GLB size</button></dt>
+                  <dd data-model-size>7.15 MB</dd>
+                </div>
+              </dl>
+              <p class="model-detail-note">
+                Each model downloads only after you select its load button; the rendered views remain
+                available without loading the 3D file.
+              </p>
+              <a class="project-link" href="#model-viewer">View in the interactive viewer ↑</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-muted" aria-labelledby="workflow-title">
+        <div class="container detail-content-grid">
+          <div>
+            <p class="eyebrow">From Unity to the web</p>
+            <h2 id="workflow-title">Preparing a game asset for interactive viewing</h2>
+            <p class="detail-copy">
+              The Blender model receives its visible materials inside Unity using vertex colors,
+              a <button class="term-button term-button-inline" type="button" data-term="texture-array">texture array</button>,
+              and ShaderLab. The GLB exporter converts supported material information into a
+              standard web representation.
+            </p>
+            <ul class="responsibility-list">
+              <li>Exported the model in a browser-compatible GLB format</li>
+              <li>Checked geometry, materials, scale, and appearance after export</li>
+              <li>Kept a rendered image available for devices that cannot display interactive 3D</li>
+              <li>Separated the public preview from the original Unity project files</li>
+            </ul>
+          </div>
+
+          <aside class="detail-callout" aria-labelledby="optimization-title">
+            <p class="eyebrow">On-demand preview</p>
+            <h3 id="optimization-title">Interactive without slowing the first visit</h3>
+            <p>
+              The model files include their textures so each asset works as one self-contained web
+              preview. Only the model selected by the visitor is downloaded.
+            </p>
+            <p>
+              The poster remains visible until the visitor chooses to download the interactive model.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section project-next" aria-labelledby="overview-title">
+        <div class="container contact-card">
+          <p class="eyebrow">Return to the project</p>
+          <h2 id="overview-title">Read the complete BantayGabi overview</h2>
+          <p>
+            See how 3D work, materials, shaders, asset integration, testing, and troubleshooting
+            fit into the wider in-development game project.
+          </p>
+          <a class="button contact-button" href="bantaygabi.html">
+            Back to BantayGabi <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© <span id="current-year">2026</span> Chris Daniel</p>
+        <a href="bantaygabi.html">BantayGabi overview <span aria-hidden="true">↑</span></a>
+      </div>
+    </footer>
+  </body>
+</html>

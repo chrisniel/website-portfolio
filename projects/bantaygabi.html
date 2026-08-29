@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="BantayGabi project case study and interactive 3D gate model by Chris Daniel."
+    >
+    <title>BantayGabi | Chris Daniel</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <script src="../assets/js/main.js" defer></script>
+    <script src="../assets/js/term-definitions.js" defer></script>
+  </head>
+  <body class="detail-page">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="../index.html#top" aria-label="Chris Daniel, portfolio home">
+          <span class="brand-mark" aria-hidden="true">CD</span>
+          <span>Chris Daniel</span>
+        </a>
+
+        <div class="header-actions">
+          <button
+            class="icon-button menu-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="primary-navigation"
+          >
+            <span class="sr-only">Open navigation</span>
+            <span class="menu-icon" aria-hidden="true"></span>
+          </button>
+
+          <nav id="primary-navigation" class="primary-navigation" aria-label="Primary navigation">
+            <a href="../index.html#projects">Projects</a>
+            <a href="../index.html#skills">Skills</a>
+            <a href="../index.html#about">About</a>
+            <a href="../index.html#contact">Contact</a>
+          </nav>
+
+          <button class="icon-button theme-toggle" type="button" aria-label="Switch to dark theme">
+            <span class="theme-icon" aria-hidden="true">☾</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="detail-hero section">
+        <div class="container detail-heading">
+          <a class="back-link" href="../index.html#projects">
+            <span aria-hidden="true">←</span> All projects
+          </a>
+          <p class="eyebrow">Unity horror game · In development</p>
+          <h1>BantayGabi</h1>
+          <p class="detail-intro">
+            A Filipino first-person horror project where I contribute 3D assets, textures,
+            environments, shaders, graphics configuration, integration, performance testing,
+            build preparation, and technical troubleshooting.
+          </p>
+          <ul class="skill-list" aria-label="BantayGabi tools and disciplines">
+            <li><button class="term-button" type="button" data-term="unity">Unity</button></li>
+            <li><button class="term-button" type="button" data-term="blender">Blender</button></li>
+            <li><button class="term-button" type="button" data-term="shaderlab">ShaderLab</button></li>
+            <li><button class="term-button" type="button" data-term="technical-art">Technical Art</button></li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="game-preview" class="section section-muted" aria-labelledby="game-preview-title">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Game preview</p>
+              <h2 id="game-preview-title">Explore the world of BantayGabi</h2>
+            </div>
+            <p>
+              These development captures introduce the nighttime neighborhood, its visual direction,
+              and the environment assets I help create and integrate.
+            </p>
+          </div>
+
+          <div class="media-carousel" data-media-carousel>
+            <div class="media-carousel-stage">
+              <img
+                class="media-carousel-content"
+                data-media-image
+                src="../assets/images/projects/bantaygabi-game-preview-01.webp"
+                alt="BantayGabi neighborhood entrance viewed from inside the subdivision gate"
+              >
+              <video
+                class="media-carousel-content"
+                data-media-video
+                controls
+                playsinline
+                preload="none"
+                hidden
+              >
+                Your browser cannot play this video. The poster and written description remain available.
+              </video>
+
+              <div class="media-carousel-caption">
+                <p class="media-carousel-kind" data-media-kind>Environment capture</p>
+                <h3 data-media-title>Subdivision entrance</h3>
+                <p data-media-description>
+                  The main gate frames the entrance to the residential neighborhood.
+                </p>
+              </div>
+            </div>
+
+            <aside class="media-carousel-panel" aria-label="BantayGabi preview navigation">
+              <div class="media-carousel-panel-heading">
+                <span>All previews</span>
+                <div class="media-carousel-arrows">
+                  <button type="button" data-media-previous aria-label="Show previous preview">←</button>
+                  <button type="button" data-media-next aria-label="Show next preview">→</button>
+                </div>
+              </div>
+
+              <div class="media-carousel-rail" role="group" aria-label="Choose a game preview">
+                <button
+                  class="media-carousel-thumb is-active"
+                  type="button"
+                  data-media-item
+                  data-media-type="image"
+                  data-media-src="../assets/images/projects/bantaygabi-game-preview-01.webp"
+                  data-media-alt="BantayGabi neighborhood entrance viewed from inside the subdivision gate"
+                  data-media-title="Subdivision entrance"
+                  data-media-description="The main gate frames the entrance to the residential neighborhood."
+                  data-media-kind="Environment capture"
+                  aria-pressed="true"
+                >
+                  <img src="../assets/images/projects/bantaygabi-game-preview-01.webp" alt="">
+                  <span><small>Image 01</small>Entrance</span>
+                </button>
+
+                <button
+                  class="media-carousel-thumb"
+                  type="button"
+                  data-media-item
+                  data-media-type="image"
+                  data-media-src="../assets/images/projects/bantaygabi-game-preview-02.webp"
+                  data-media-alt="Street lights illuminating trees in the BantayGabi neighborhood at night"
+                  data-media-title="Street lighting"
+                  data-media-description="Warm street lights shape visibility and atmosphere along the neighborhood road."
+                  data-media-kind="Lighting capture"
+                  aria-pressed="false"
+                >
+                  <img loading="lazy" src="../assets/images/projects/bantaygabi-game-preview-02.webp" alt="">
+                  <span><small>Image 02</small>Street lights</span>
+                </button>
+
+                <button
+                  class="media-carousel-thumb"
+                  type="button"
+                  data-media-item
+                  data-media-type="image"
+                  data-media-src="../assets/images/projects/bantaygabi-game-preview-03.webp"
+                  data-media-alt="Rows of street lights seen beyond the subdivision gate at night"
+                  data-media-title="Night atmosphere"
+                  data-media-description="Layered lighting and silhouettes establish the neighborhood's nighttime mood."
+                  data-media-kind="Lighting capture"
+                  aria-pressed="false"
+                >
+                  <img loading="lazy" src="../assets/images/projects/bantaygabi-game-preview-03.webp" alt="">
+                  <span><small>Image 03</small>Night mood</span>
+                </button>
+
+                <button
+                  class="media-carousel-thumb"
+                  type="button"
+                  data-media-item
+                  data-media-type="image"
+                  data-media-src="../assets/images/projects/bantaygabi-game-preview-04.webp"
+                  data-media-alt="BantayGabi guard post and subdivision entrance under street lights"
+                  data-media-title="Guard post"
+                  data-media-description="The guard post, gate, and nearby lighting establish the entrance as a readable landmark."
+                  data-media-kind="Environment capture"
+                  aria-pressed="false"
+                >
+                  <img loading="lazy" src="../assets/images/projects/bantaygabi-game-preview-04.webp" alt="">
+                  <span><small>Image 04</small>Guard post</span>
+                </button>
+
+                <button
+                  class="media-carousel-thumb"
+                  type="button"
+                  data-media-item
+                  data-media-type="image"
+                  data-media-src="../assets/images/projects/bantaygabi-game-preview-05.webp"
+                  data-media-alt="Interior desk, chair, and window lit by the street outside"
+                  data-media-title="Interior view"
+                  data-media-description="A simple interior connects the player's indoor space to the illuminated street outside."
+                  data-media-kind="Interior capture"
+                  aria-pressed="false"
+                >
+                  <img loading="lazy" src="../assets/images/projects/bantaygabi-game-preview-05.webp" alt="">
+                  <span><small>Image 05</small>Interior</span>
+                </button>
+
+                <button
+                  class="media-carousel-thumb"
+                  type="button"
+                  data-media-item
+                  data-media-type="image"
+                  data-media-src="../assets/images/projects/bantaygabi-game-preview-06.webp"
+                  data-media-alt="Dark residential lane and house exterior in BantayGabi"
+                  data-media-title="Residential lane"
+                  data-media-description="A darker side street contrasts with the warmer lighting near the main entrance."
+                  data-media-kind="Environment capture"
+                  aria-pressed="false"
+                >
+                  <img loading="lazy" src="../assets/images/projects/bantaygabi-game-preview-06.webp" alt="">
+                  <span><small>Image 06</small>Side street</span>
+                </button>
+
+                <button
+                  class="media-carousel-thumb"
+                  type="button"
+                  data-media-item
+                  data-media-type="image"
+                  data-media-src="../assets/images/projects/bantaygabi-game-preview-07.webp"
+                  data-media-alt="Dense trees and shadowed ground at the edge of the BantayGabi environment"
+                  data-media-title="Forest edge"
+                  data-media-description="Dense foliage creates a darker boundary beyond the residential area."
+                  data-media-kind="Environment capture"
+                  aria-pressed="false"
+                >
+                  <img loading="lazy" src="../assets/images/projects/bantaygabi-game-preview-07.webp" alt="">
+                  <span><small>Image 07</small>Forest edge</span>
+                </button>
+
+                <button
+                  class="media-carousel-thumb"
+                  type="button"
+                  data-media-item
+                  data-media-type="image"
+                  data-media-src="../assets/images/projects/bantaygabi-game-preview-08.webp"
+                  data-media-alt="Rocky waterway and terrain at the edge of the BantayGabi environment"
+                  data-media-title="Waterway"
+                  data-media-description="Rock, terrain, and water extend the environment beyond the neighborhood streets."
+                  data-media-kind="Environment capture"
+                  aria-pressed="false"
+                >
+                  <img loading="lazy" src="../assets/images/projects/bantaygabi-game-preview-08.webp" alt="">
+                  <span><small>Image 08</small>Waterway</span>
+                </button>
+              </div>
+            </aside>
+
+            <p class="sr-only" data-media-status aria-live="polite">
+              Showing Subdivision entrance, image 1 of 8.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="model-library-title">
+        <div class="container model-library-promo">
+          <img
+            src="../assets/images/posters/bantaygabi-subdivision-gate-poster.webp"
+            alt="Rendered front view of the BantayGabi subdivision gate model"
+          >
+          <div>
+            <p class="eyebrow">Dedicated 3D library</p>
+            <h2 id="model-library-title">Explore the environment assets behind BantayGabi</h2>
+            <p>
+              Rotate the subdivision gate, compare it with its rendered view, and see how the asset
+              was prepared for Unity and the browser.
+            </p>
+            <p class="term-hint">
+              Highlighted technical terms include an optional plain-language explanation.
+            </p>
+            <a class="button button-primary" href="bantaygabi-models.html">
+              Open 3D model library <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-muted" aria-labelledby="contribution-title">
+        <div class="container detail-content-grid">
+          <div>
+            <p class="eyebrow">My contribution</p>
+            <h2 id="contribution-title">Art and implementation working together</h2>
+            <p class="detail-copy">
+              My work connects visual asset production with the practical work needed to make
+              those assets behave inside a real Unity project. That includes preparing models,
+              building materials and shaders, checking graphics settings, integrating assets,
+              testing builds, and investigating visual or performance problems.
+            </p>
+            <ul class="responsibility-list">
+              <li>3D modeling, texture preparation, and environment assets</li>
+              <li>
+                Unity material, ShaderLab, vertex-color, and
+                <button class="term-button term-button-inline" type="button" data-term="texture-array">texture-array</button>
+                workflows
+              </li>
+              <li>Graphics configuration, build preparation, and performance checks</li>
+              <li>Asset integration, testing, troubleshooting, and team support</li>
+            </ul>
+          </div>
+
+          <aside class="detail-callout" aria-labelledby="development-note-title">
+            <p class="eyebrow">Project status</p>
+            <h3 id="development-note-title">Active development</h3>
+            <p>
+              BantayGabi is still being developed, so the scenes and assets shown here may continue
+              to change as the game’s environment, lighting, and performance are refined.
+            </p>
+            <p>
+              The interactive model uses simplified web materials; Unity-specific shader effects
+              may therefore look slightly different from the in-game version.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section project-next" aria-labelledby="next-project-title">
+        <div class="container contact-card">
+          <p class="eyebrow">Continue exploring</p>
+          <h2 id="next-project-title">See the server administration case study</h2>
+          <p>
+            Explore three documented Minecraft environments covering configuration,
+            compatibility, performance, Discord integration, and troubleshooting.
+          </p>
+          <a class="button contact-button" href="minecraft-server-administration.html">
+            View Minecraft case study <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© <span id="current-year">2026</span> Chris Daniel</p>
+        <a href="../index.html#projects">Back to projects <span aria-hidden="true">↑</span></a>
+      </div>
+    </footer>
+  </body>
+</html>

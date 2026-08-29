@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Minecraft server administration case study documenting Forge, NeoForge, and Paper environments maintained by Chris Daniel."
+    >
+    <title>Minecraft Server Administration | Chris Daniel</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <script src="../assets/js/main.js" defer></script>
+    <script src="../assets/js/term-definitions.js" defer></script>
+  </head>
+  <body class="detail-page">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="../index.html#top" aria-label="Chris Daniel, portfolio home">
+          <span class="brand-mark" aria-hidden="true">CD</span>
+          <span>Chris Daniel</span>
+        </a>
+
+        <div class="header-actions">
+          <button
+            class="icon-button menu-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="primary-navigation"
+          >
+            <span class="sr-only">Open navigation</span>
+            <span class="menu-icon" aria-hidden="true"></span>
+          </button>
+
+          <nav id="primary-navigation" class="primary-navigation" aria-label="Primary navigation">
+            <a href="../index.html#projects">Projects</a>
+            <a href="../index.html#skills">Skills</a>
+            <a href="../index.html#about">About</a>
+            <a href="../index.html#contact">Contact</a>
+          </nav>
+
+          <button class="icon-button theme-toggle" type="button" aria-label="Switch to dark theme">
+            <span class="theme-icon" aria-hidden="true">☾</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="detail-hero section">
+        <div class="container detail-heading">
+          <a class="back-link" href="../index.html#projects">
+            <span aria-hidden="true">←</span> All projects
+          </a>
+          <p class="eyebrow">Server administration · Archived and documented</p>
+          <h1>Minecraft Server Administration</h1>
+          <p class="detail-intro">
+            Three private, self-hosted Minecraft environments that I assembled and maintained
+            for a small group of players using Forge, NeoForge, and Paper.
+          </p>
+          <div class="button-row">
+            <a
+              class="button button-primary"
+              href="https://github.com/chrisniel/Minecraft-Server-Administration-Portfolio"
+              target="_blank"
+              rel="noreferrer"
+            >
+              View documentation on GitHub <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+          <p class="term-hint">Highlighted technical terms include an optional plain-language explanation.</p>
+          <ul class="skill-list" aria-label="Minecraft server technologies">
+            <li><button class="term-button" type="button" data-term="forge">Forge</button></li>
+            <li><button class="term-button" type="button" data-term="neoforge">NeoForge</button></li>
+            <li><button class="term-button" type="button" data-term="papermc">PaperMC</button></li>
+            <li><button class="term-button" type="button" data-term="discord-integration">Discord Integration</button></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section section-muted" aria-labelledby="gallery-title">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Environment gallery</p>
+              <h2 id="gallery-title">Jumanji NeoForge environment</h2>
+            </div>
+            <p>
+              Explore a documented modded environment featuring settlement planning, automated
+              farming, and connected material-processing systems.
+            </p>
+          </div>
+
+          <div class="project-gallery" data-project-gallery>
+            <div class="showcase-stage gallery-image-stage" data-gallery-stage>
+              <img
+                class="showcase-media"
+                data-gallery-image
+                src="../assets/images/projects/minecraft-neoforge-settlement-at-night.png"
+                alt="Private NeoForge settlement and illuminated tower at night"
+              >
+            </div>
+
+            <div class="gallery-thumbnails" aria-label="Minecraft environment screenshots">
+              <button
+                class="gallery-thumb is-active"
+                type="button"
+                data-gallery-mode="image"
+                data-gallery-src="../assets/images/projects/minecraft-neoforge-settlement-at-night.png"
+                data-gallery-alt="Private NeoForge settlement and illuminated tower at night"
+                aria-pressed="true"
+              >
+                <img src="../assets/images/projects/minecraft-neoforge-settlement-at-night.png" alt="">
+                <span>Settlement</span>
+              </button>
+              <button
+                class="gallery-thumb"
+                type="button"
+                data-gallery-mode="image"
+                data-gallery-src="../assets/images/projects/minecraft-neoforge-automated-farm.png"
+                data-gallery-alt="Multi-level automated farm connected to a machinery area"
+                aria-pressed="false"
+              >
+                <img src="../assets/images/projects/minecraft-neoforge-automated-farm.png" alt="">
+                <span>Automated farm</span>
+              </button>
+              <button
+                class="gallery-thumb"
+                type="button"
+                data-gallery-mode="image"
+                data-gallery-src="../assets/images/projects/minecraft-neoforge-processing-area.png"
+                data-gallery-alt="Modded machinery and material-processing area"
+                aria-pressed="false"
+              >
+                <img src="../assets/images/projects/minecraft-neoforge-processing-area.png" alt="">
+                <span>Processing area</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="environments-title">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Documented environments</p>
+              <h2 id="environments-title">Three different server profiles</h2>
+            </div>
+            <p>
+              These profiles document the environments I administered. The third-party mods and
+              plugins were curated and configured by me, not developed by me.
+            </p>
+          </div>
+
+          <div class="case-study-grid">
+            <article class="case-study-card">
+              <p class="project-number">Forge 1.20.1</p>
+              <h3>Create &amp; Physics Focus</h3>
+              <dl class="fact-list">
+                <div><dt>Installed content</dt><dd>229 mods</dd></div>
+                <div><dt>Capacity</dt><dd>5 players</dd></div>
+                <div>
+                  <dt><button class="term-button term-button-inline" type="button" data-term="java-heap">Java heap</button></dt>
+                  <dd>4 GB</dd>
+                </div>
+                <div><dt>Integration</dt><dd>Discord bridge</dd></div>
+              </dl>
+            </article>
+
+            <article class="case-study-card">
+              <p class="project-number">NeoForge 1.21.1</p>
+              <h3>Jumanji</h3>
+              <dl class="fact-list">
+                <div><dt>Installed content</dt><dd>128 mods</dd></div>
+                <div><dt>Capacity</dt><dd>5 players</dd></div>
+                <div><dt>Memory</dt><dd>2–6 GB heap</dd></div>
+                <div><dt>Focus</dt><dd>Automation and processing</dd></div>
+              </dl>
+            </article>
+
+            <article class="case-study-card">
+              <p class="project-number">Paper 1.20.4</p>
+              <h3>Season 2 Private Server</h3>
+              <dl class="fact-list">
+                <div><dt>Installed content</dt><dd>48 plugins</dd></div>
+                <div><dt>Capacity</dt><dd>10 players</dd></div>
+                <div><dt>Memory</dt><dd>8 GB heap</dd></div>
+                <div><dt>Integration</dt><dd>Discord bridge</dd></div>
+              </dl>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-muted" aria-labelledby="responsibilities-title">
+        <div class="container detail-content-grid">
+          <div>
+            <p class="eyebrow">Responsibilities demonstrated</p>
+            <h2 id="responsibilities-title">Configuration, compatibility, and support</h2>
+            <ul class="responsibility-list">
+              <li>Installed and maintained Forge, NeoForge, and Paper environments</li>
+              <li>Curated mod and plugin collections while checking version compatibility</li>
+              <li>Tuned Java memory, view distance, and simulation distance</li>
+              <li>Maintained matching server and client environments for private players</li>
+              <li>Configured Discord-to-Minecraft chat integration in two environments</li>
+              <li>Investigated crashes, startup failures, and configuration conflicts</li>
+            </ul>
+          </div>
+
+          <aside class="detail-callout" aria-labelledby="privacy-note-title">
+            <p class="eyebrow">Project status</p>
+            <h3 id="privacy-note-title">Archived private environments</h3>
+            <p>
+              These servers are archived and no longer active. This case study shares selected
+              screenshots and technical documentation while keeping player and connection
+              information private.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section project-next" aria-labelledby="next-project-title">
+        <div class="container contact-card">
+          <p class="eyebrow">Continue exploring</p>
+          <h2 id="next-project-title">Inspect a BantayGabi 3D asset</h2>
+          <p>
+            View the first interactive model showcase and learn about my Unity technical-art
+            contributions to the in-development horror project.
+          </p>
+          <a class="button contact-button" href="bantaygabi.html">
+            Explore BantayGabi <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© <span id="current-year">2026</span> Chris Daniel</p>
+        <a href="../index.html#projects">Back to projects <span aria-hidden="true">↑</span></a>
+      </div>
+    </footer>
+  </body>
+</html>

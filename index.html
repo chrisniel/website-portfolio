@@ -10,6 +10,7 @@
     <title>Chris Daniel | Creative Developer Portfolio</title>
     <link rel="stylesheet" href="assets/css/styles.css">
     <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/term-definitions.js" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -69,10 +70,11 @@
               </a>
             </div>
             <ul class="skill-list" aria-label="Main creative fields">
-              <li>Unity</li>
-              <li>Blender 3D</li>
-              <li>ShaderLab</li>
-              <li>Git &amp; GitHub</li>
+              <li><button class="term-button" type="button" data-term="unity">Unity</button></li>
+              <li><button class="term-button" type="button" data-term="blender">Blender 3D</button></li>
+              <li><button class="term-button" type="button" data-term="shaderlab">ShaderLab</button></li>
+              <li><button class="term-button" type="button" data-term="git">Git</button></li>
+              <li><button class="term-button" type="button" data-term="github">GitHub</button></li>
             </ul>
           </div>
 
@@ -114,9 +116,11 @@
 
           <div class="project-grid">
             <article class="project-card">
-              <div class="project-visual visual-horror" aria-hidden="true">
-                <span class="wireframe-shape"></span>
-              </div>
+              <img
+                class="project-visual project-image"
+                src="assets/images/projects/bantaygabi-game-preview-04.webp"
+                alt="Nighttime BantayGabi guard post and subdivision entrance under street lights"
+              >
               <div class="project-content">
                 <p class="project-number">01 · Unity horror game</p>
                 <h3>BantayGabi</h3>
@@ -130,7 +134,10 @@
                   <li>Blender</li>
                   <li>ShaderLab</li>
                 </ul>
-                <span class="project-status">Ongoing</span>
+                <span class="project-status">In development</span>
+                <a class="project-link" href="projects/bantaygabi.html">
+                  Explore BantayGabi <span aria-hidden="true">→</span>
+                </a>
               </div>
             </article>
 
@@ -149,16 +156,18 @@
                 <ul class="project-tags" aria-label="Kumpuni tools and disciplines">
                   <li>Unity</li>
                   <li>3D Art</li>
-                  <li>Shader Graph</li>
+                  <li><button class="term-button" type="button" data-term="shader-graph">Shader Graph</button></li>
                 </ul>
-                <span class="project-status">Ongoing</span>
+                <span class="project-status">In development</span>
               </div>
             </article>
 
             <article class="project-card">
-              <div class="project-visual visual-server" aria-hidden="true">
-                <span class="code-shape">{ }</span>
-              </div>
+              <img
+                class="project-visual project-image"
+                src="assets/images/projects/minecraft-neoforge-settlement-at-night.png"
+                alt="Private NeoForge settlement and illuminated tower at night"
+              >
               <div class="project-content">
                 <p class="project-number">03 · Server administration</p>
                 <h3>Minecraft Server Portfolio</h3>
@@ -168,17 +177,13 @@
                   integrated Discord chat, and documented troubleshooting work.
                 </p>
                 <ul class="project-tags" aria-label="Minecraft server technologies">
-                  <li>Forge</li>
-                  <li>NeoForge</li>
-                  <li>PaperMC</li>
+                  <li><button class="term-button" type="button" data-term="forge">Forge</button></li>
+                  <li><button class="term-button" type="button" data-term="neoforge">NeoForge</button></li>
+                  <li><button class="term-button" type="button" data-term="papermc">PaperMC</button></li>
                 </ul>
-                <a
-                  class="project-link"
-                  href="https://github.com/chrisniel/Minecraft-Server-Administration-Portfolio"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  View case study <span aria-hidden="true">↗</span>
+                <span class="project-status">Archived case study</span>
+                <a class="project-link" href="projects/minecraft-server-administration.html">
+                  Read case study <span aria-hidden="true">→</span>
                 </a>
               </div>
             </article>
@@ -194,8 +199,8 @@
               <h2 id="skills-title">A practical creative toolkit</h2>
             </div>
             <p>
-              My strongest work happens where game development, technical art, and reliable
-              systems overlap.
+              My work brings together game development, 3D environment art, technical art, and
+              dependable software systems. Highlighted terms include optional plain-language explanations.
             </p>
           </div>
 
@@ -203,12 +208,18 @@
             <article class="skill-card">
               <p class="skill-number" aria-hidden="true">01</p>
               <h3>Game Development</h3>
-              <p>Unity, Godot, environment setup, build setup, graphics and quality settings, and playtesting.</p>
+              <p>
+                Unity, <button class="term-button term-button-inline" type="button" data-term="godot">Godot</button>,
+                environment setup, build setup, graphics and quality settings, and playtesting.
+              </p>
             </article>
             <article class="skill-card">
               <p class="skill-number" aria-hidden="true">02</p>
               <h3>Technical Art</h3>
-              <p>ShaderLab, Shader Graph, 3D modeling, texturing, Blender, Photoshop, and AutoCAD.</p>
+              <p>
+                ShaderLab, Shader Graph, 3D modeling, texturing, Blender, Photoshop, and
+                <button class="term-button term-button-inline" type="button" data-term="autocad">AutoCAD</button>.
+              </p>
             </article>
             <article class="skill-card">
               <p class="skill-number" aria-hidden="true">03</p>
@@ -259,11 +270,11 @@
               <ol class="timeline">
                 <li>
                   <div class="timeline-heading">
-                    <h4>Electrician &amp; Administrative Secretary</h4>
+                    <h4>Electrician · Part-time</h4>
                     <span>2019–Present</span>
                   </div>
-                  <p class="timeline-organization">DC Construction Services</p>
-                  <p>Prepare AutoCAD plans, perform electrical installation, draft contracts, and maintain administrative documentation.</p>
+                  <p class="timeline-organization">Criz Iron Works and Construction Services</p>
+                  <p>Handle electrical installation work for construction projects, with occasional support for AutoCAD plans, contracts, and project paperwork.</p>
                 </li>
                 <li>
                   <div class="timeline-heading">

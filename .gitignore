@@ -1,5 +1,6 @@
 # Temporary files
 temp.txt
+/assets/images/projects/bantaygabi-game-poster.png
 *.tmp
 *.log
 

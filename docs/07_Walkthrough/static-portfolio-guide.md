@@ -13,6 +13,15 @@ This guide explains the first portfolio version in beginner-friendly steps.
   - Opens and closes the mobile navigation.
   - Saves the visitor's light/dark theme preference when browser storage is available.
   - Keeps the footer year current.
+  - Changes project gallery images and loads the optional 3D viewer after a visitor asks for it.
+- `assets/js/term-definitions.js`
+  - Stores short technical definitions and opens accessible explanations for highlighted terms.
+- `projects/bantaygabi.html`
+  - Contains the concise BantayGabi case study and link to the model library.
+- `projects/bantaygabi-models.html`
+  - Contains the click-to-load viewer, reference images, model facts, and future model space.
+- `projects/minecraft-server-administration.html`
+  - Contains the archived Minecraft server administration case study and gallery.
 - `AGENTS.md`
   - Defines how AI assistants should plan, test, document, and explain future work.
 - `README.md`
@@ -74,15 +83,14 @@ Use the prepared folders:
 
 Before publishing any asset, add it to `docs/04_Source-Design-Documents/asset-register.md`.
 
-## Prepare The First 3D Showcase
+## Update The First 3D Showcase
 
-- Choose one model rather than several.
-- Export an optimized `.glb` into `assets/models/`.
-- Export a lightweight matching WebP poster into `assets/images/posters/`.
-- Supply a model title and a short description for visitors who cannot use the interactive viewer.
-- Confirm the model and textures are safe and permitted to publish.
-- Test the files in the official `<model-viewer>` editor and on a phone.
-- Only then implement the component using `docs/03_Feature-Plans/3d-showcase-plan.md`.
+- The first model and poster are connected from `projects/bantaygabi-models.html`.
+- Replace the GLB or poster at the same paths to update them without changing HTML.
+- Keep the model title and accessible description accurate when its appearance changes.
+- Compress the current embedded textures to the planned 1K size before final publication.
+- Test the exported GLB in the browser because Unity custom shaders do not transfer exactly.
+- See `docs/07_Walkthrough/project-detail-pages-guide.md` for exact preview and testing steps.
 
 No cache file needs to be created manually. Normal browser caching will be used when the files are eventually hosted.
 
@@ -94,8 +102,10 @@ No cache file needs to be created manually. Normal browser caching will be used 
 - Press `Tab` repeatedly and confirm the focused link or button has a visible outline.
 - Press `Escape` while the mobile menu is open and confirm it closes.
 - Confirm no project, contact, or social link is presented as real before Chris supplies it.
-- Confirm the BantayGabi and Kumpuni cards are labeled ongoing.
-- Open the primary GitHub link and Minecraft case-study link in a new tab.
+- Confirm the BantayGabi and Kumpuni cards are labeled in development.
+- Open the BantayGabi and Minecraft detail pages from their homepage cards.
+- Open the BantayGabi model library, select “Load interactive 3D model,” and confirm the gate rotates.
+- Open the primary GitHub and Minecraft repository links in new tabs.
 
 ## Features Intentionally Deferred
 
@@ -104,7 +114,7 @@ No cache file needs to be created manually. Normal browser caching will be used 
 - Contact-form message storage.
 - Persistent click/view analytics.
 - Direct browser uploads.
-- Live 3D model and large video delivery.
+- Large video delivery and the whole-environment web tour.
 
 ## Unused Local Scaffold
 
