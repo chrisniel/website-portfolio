@@ -6,7 +6,7 @@ These rules apply to AI-assisted work throughout this repository.
 
 - Before changing code, briefly describe the intended result, affected files, and prerequisites.
 - Maintain the active plan in `docs/08_Tracking/implementation-plan.md`.
-- Ask Chris before making a major architecture decision, adding a paid service, or introducing a framework or dependency.
+- Ask user before making a major architecture decision, adding a paid service, or introducing a framework or dependency.
 
 ## 2. Maintain Task Continuity
 
@@ -17,7 +17,7 @@ These rules apply to AI-assisted work throughout this repository.
 
 - Document meaningful deliveries under `docs/07_Walkthrough/`.
 - Include exact file paths, simple usage steps, and safe customization guidance.
-- Explain unfamiliar terms in plain language because this project is also a learning resource for Chris.
+- Explain unfamiliar terms in plain language because this project is also a learning resource for user.
 
 ## 4. Update The Changelog
 
@@ -39,7 +39,7 @@ These rules apply to AI-assisted work throughout this repository.
 - Implementation requests authorize safe, non-destructive automated checks that are directly related to changed files.
 - Explain which checks were run and their results.
 - Ask before destructive diagnostics, installing new tools, using paid services, changing external systems, or testing with private/production data.
-- Provide a short manual verification guide for Chris after meaningful UI changes.
+- Provide a short manual verification guide for user after meaningful UI changes.
 
 ## 8. Make Surgical Changes
 
@@ -48,7 +48,7 @@ These rules apply to AI-assisted work throughout this repository.
 
 ## 9. Clarify Material Unknowns
 
-- Ask Chris when missing information would materially change cost, architecture, security, privacy, or the visible result.
+- Ask user when missing information would materially change cost, architecture, security, privacy, or the visible result.
 - Use clearly labeled placeholders for non-sensitive content such as project descriptions or contact links when appropriate.
 
 ## 10. Protect Privacy And Secrets
