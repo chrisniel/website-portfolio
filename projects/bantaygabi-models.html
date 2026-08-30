@@ -8,8 +8,8 @@
       content="Interactive BantayGabi 3D model library featuring web-ready assets by Chris Daniel."
     >
     <title>BantayGabi 3D Models | Chris Daniel</title>
-    <link rel="stylesheet" href="../assets/css/styles.css">
-    <script src="../assets/js/main.js" defer></script>
+    <link rel="stylesheet" href="../assets/css/styles.css?v=20260830-7">
+    <script src="../assets/js/main.js?v=20260830-7" defer></script>
     <script src="../assets/js/term-definitions.js" defer></script>
   </head>
   <body class="detail-page">
@@ -37,8 +37,29 @@
             <a href="../index.html#projects">Projects</a>
             <a href="../index.html#skills">Skills</a>
             <a href="../index.html#about">About</a>
+            <a href="../index.html#background">Background</a>
             <a href="../index.html#contact">Contact</a>
           </nav>
+
+          <div
+            class="sidebar-feature"
+            data-sidebar-feature
+            data-sidebar-images="../assets/images/projects/bantaygabi-game-preview-01.webp,../assets/images/projects/bantaygabi-game-preview-05.webp,../assets/images/projects/bantaygabi-game-preview-08.webp"
+          >
+            <div class="sidebar-feature-art" data-sidebar-art aria-hidden="true"></div>
+            <div class="sidebar-feature-content">
+              <p class="sidebar-feature-label">Portfolio focus</p>
+              <p class="sidebar-feature-text">Unity · Blender<br>Technical art · Systems</p>
+              <a
+                class="sidebar-feature-link"
+                href="https://github.com/chrisniel"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View GitHub <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </div>
 
           <button class="icon-button theme-toggle" type="button" aria-label="Switch to dark theme">
             <span class="theme-icon" aria-hidden="true">☾</span>
@@ -103,7 +124,7 @@
               data-model-triangles="7,464"
               data-model-vertices="28,016"
               data-model-materials="2"
-              data-model-size="7.15 MB"
+              data-model-size="7.50 MB"
               aria-pressed="true"
             >
               <img src="../assets/images/posters/bantaygabi-subdivision-gate-poster.webp" alt="">
@@ -130,7 +151,7 @@
               data-model-triangles="1,708"
               data-model-vertices="5,124"
               data-model-materials="11"
-              data-model-size="8.26 MB"
+              data-model-size="8.67 MB"
               aria-pressed="false"
             >
               <img loading="lazy" src="../assets/images/posters/bantaygabi-house-01-angle.webp" alt="">
@@ -157,7 +178,7 @@
               data-model-triangles="828"
               data-model-vertices="2,484"
               data-model-materials="10"
-              data-model-size="7.59 MB"
+              data-model-size="7.96 MB"
               aria-pressed="false"
             >
               <img loading="lazy" src="../assets/images/posters/bantaygabi-house-04-angle.webp" alt="">
@@ -184,7 +205,7 @@
               data-model-triangles="1,274"
               data-model-vertices="3,818"
               data-model-materials="12"
-              data-model-size="8.25 MB"
+              data-model-size="8.65 MB"
               aria-pressed="false"
             >
               <img loading="lazy" src="../assets/images/posters/bantaygabi-house-05-angle.webp" alt="">
@@ -214,7 +235,7 @@
               data-model-triangles="2,594"
               data-model-vertices="7,734"
               data-model-materials="20"
-              data-model-size="8.41 MB"
+              data-model-size="8.82 MB"
               aria-pressed="false"
             >
               <img loading="lazy" src="../assets/images/posters/bantaygabi-large-house-aerial.webp" alt="">
@@ -323,7 +344,7 @@
         <div class="container">
           <div class="section-heading">
             <div>
-              <p class="eyebrow" data-model-category>Environment asset 01</p>
+              <p class="eyebrow" data-model-category-output>Environment asset 01</p>
               <h2 id="library-title" data-model-detail-title>Subdivision Gate</h2>
             </div>
             <p>
@@ -344,12 +365,12 @@
                 model.
               </p>
               <dl class="fact-list">
-                <div><dt>Triangles</dt><dd data-model-triangles>7,464</dd></div>
-                <div><dt>Vertices</dt><dd data-model-vertices>28,016</dd></div>
-                <div><dt>Materials</dt><dd data-model-materials>2</dd></div>
+                <div><dt>Triangles</dt><dd data-model-triangles-output>7,464</dd></div>
+                <div><dt>Vertices</dt><dd data-model-vertices-output>28,016</dd></div>
+                <div><dt>Materials</dt><dd data-model-materials-output>2</dd></div>
                 <div>
                   <dt><button class="term-button term-button-inline" type="button" data-term="glb">GLB size</button></dt>
-                  <dd data-model-size>7.15 MB</dd>
+                  <dd data-model-size-output>7.50 MB</dd>
                 </div>
               </dl>
               <p class="model-detail-note">
@@ -366,18 +387,18 @@
         <div class="container detail-content-grid">
           <div>
             <p class="eyebrow">From Unity to the web</p>
-            <h2 id="workflow-title">Preparing a game asset for interactive viewing</h2>
+            <h2 id="workflow-title">Preparing game assets for interactive viewing</h2>
             <p class="detail-copy">
-              The Blender model receives its visible materials inside Unity using vertex colors,
-              a <button class="term-button term-button-inline" type="button" data-term="texture-array">texture array</button>,
+              These assets are prepared in Blender and receive their final materials in Unity. The
+              workflow can include vertex colors, a <button class="term-button term-button-inline" type="button" data-term="texture-array">texture array</button>,
               and ShaderLab. The GLB exporter converts supported material information into a
-              standard web representation.
+              standard format that browsers can display.
             </p>
             <ul class="responsibility-list">
-              <li>Exported the model in a browser-compatible GLB format</li>
-              <li>Checked geometry, materials, scale, and appearance after export</li>
-              <li>Kept a rendered image available for devices that cannot display interactive 3D</li>
-              <li>Separated the public preview from the original Unity project files</li>
+              <li>Exported each selected asset in a browser-compatible GLB format</li>
+              <li>Reviewed geometry, materials, scale, and appearance after export</li>
+              <li>Kept rendered images available for devices that cannot display interactive 3D</li>
+              <li>Separated the public previews from the original Unity project files</li>
             </ul>
           </div>
 
@@ -385,8 +406,8 @@
             <p class="eyebrow">On-demand preview</p>
             <h3 id="optimization-title">Interactive without slowing the first visit</h3>
             <p>
-              The model files include their textures so each asset works as one self-contained web
-              preview. Only the model selected by the visitor is downloaded.
+              Each web preview packages its model and textures in one GLB. The browser downloads
+              only the asset a visitor chooses to inspect.
             </p>
             <p>
               The poster remains visible until the visitor chooses to download the interactive model.

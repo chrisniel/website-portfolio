@@ -1,6 +1,6 @@
 # Current Project Status
 
-Updated: 2026-08-29
+Updated: 2026-08-30
 
 ## Working
 
@@ -26,7 +26,7 @@ Updated: 2026-08-29
 
 ## Ready For More Content
 
-- Decorative background images.
+- Additional approved decorative background images when they add useful variety.
 - Additional optimized project screenshots, posters, and models when they add new information.
 - Kumpuni media when it becomes available.
 - Approved BantayGabi gameplay/environment video and its poster image.
@@ -40,7 +40,6 @@ Updated: 2026-08-29
 ## Before First Publication
 
 - Push `main` to the configured `origin` repository and enable GitHub Pages.
-- Complete one final desktop and phone check of the model load, close, reopen, and image-switch flow.
 - The five GLBs can be published in their current click-to-load form; a later texture pass remains a
   recommended performance improvement rather than a launch blocker.
 - The game repositories have been inspected. Public media still requires per-asset ownership,
@@ -53,12 +52,18 @@ Updated: 2026-08-29
 
 ## Latest Delivery
 
+- Added one stable randomized desktop-sidebar image, a compact portfolio-focus block, and consistent
+  navigation across the homepage and all three detail pages.
+- Corrected the phone-menu width, aligned the desktop brand and theme controls, and returned keyboard
+  focus to the menu button when Escape closes the mobile navigation.
+- Chris completed the final desktop and phone interaction check and confirmed the current site is
+  working correctly in his browser.
 - The 3D viewer loading regression was corrected and a 45-second recovery timeout was added.
 - Public wording now focuses on Chris's work and the visitor experience instead of internal
   implementation notes.
 - GitHub Pages asset handling was corrected so the public GLBs are not stored through Git LFS.
 - Eight supplied WebP game captures and four additional house GLBs were integrated into the public
   BantayGabi pages.
-- Automated browser control remains unavailable because of a local runtime mismatch; Chris already
-  confirmed the earlier responsive layout on his phone, and the expanded rails require one final
-  manual swipe/click check before pushing.
+- Automated browser interaction remains unavailable in the local tool environment; static,
+  structural, syntax, privacy, and localhost checks are used alongside Chris's completed manual
+  desktop and phone verification.

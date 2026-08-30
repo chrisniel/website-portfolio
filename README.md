@@ -79,12 +79,13 @@ branch there, then enable Pages.
 
 ## Known Limitations
 
-- The five BantayGabi GLBs are approximately 7.1–8.4 MB each. A later 1K texture pass should improve
+- The five BantayGabi GLBs are approximately 7.5–8.8 MB each. A later 1K texture pass should improve
   loading on slower connections, but the click-to-load versions are suitable for an initial release.
 - The 3D viewer requires an internet connection to download the pinned `<model-viewer>` library on first use.
 - The game repositories were inspected, but a whole-environment web tour still needs a separate,
   optimized, permission-cleared web export.
 - No form submissions or visitor data are stored.
-- Automated static and HTTP checks are available, but the current in-app visual browser runtime has
-  a local version mismatch; the expanded preview/model rails need one final manual click/swipe check.
+- Automated static and HTTP checks cover the release files. The local automated interaction runner
+  remains unavailable, but Chris completed the final desktop and phone interaction check in his
+  browser and confirmed the current navigation, previews, and model controls work correctly.
 - The empty local `main-files/` scaffold is not part of the active site.

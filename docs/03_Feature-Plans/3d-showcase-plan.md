@@ -1,4 +1,4 @@
-# Future 3D Model Showcase Plan
+# 3D Model Showcase Plan And Delivery Record
 
 Status: Five-model library implemented on 2026-08-29 with supplied GLBs and rendered views;
 final hosted verification remains after GitHub Pages is enabled.
@@ -46,23 +46,24 @@ Allow visitors to inspect selected portfolio models interactively without slowin
 
 ## Current Limitations
 
-- The GLBs are approximately 7.1–8.4 MB because their embedded textures remain large.
+- The GLBs are approximately 7.5–8.8 MB because their embedded textures remain large.
 - Unity ShaderLab and texture-array behavior does not transfer directly to a standard web viewer;
   the exported glTF materials are the web representation.
 - Local testing should use an HTTP server rather than opening the project page through `file://`.
-- Manual review on a real phone is still recommended before publication.
+- Chris completed the pre-publication review on a real phone and confirmed the current model flow
+  and responsive layout work correctly.
 
-## Approved Next Version
+## Implemented Library Version
 
-- Remove gameplay-context media from the model-library page.
-- Add compact selectable model cards based on Chris's model-page sketches.
-- Reuse one viewer for all models.
-- Give each model one to three angle images and synchronized technical facts.
-- Keep model files click-to-load and preserve close/reopen behavior.
-- Add gameplay images/videos to a separate overview carousel with a semi-transparent left rail on
+- Gameplay-context media is separate from the model-library page.
+- Compact selectable model cards follow Chris's approved model-page sketches.
+- One viewer is reused for all models.
+- Each model has one to three angle images and synchronized technical facts.
+- Model files remain click-to-load and preserve close/reopen behavior.
+- Gameplay images and future videos use a separate overview carousel with a semi-transparent left rail on
   desktop and a horizontal bottom rail on phones.
-- Do not autoplay or automatically advance media.
-- Do not add a whole-environment model until a deliberately optimized export is approved.
+- Media does not autoplay or automatically advance.
+- A whole-environment model remains deferred until a deliberately optimized export is approved.
 
 ## 2026-08-29 Delivery Result
 

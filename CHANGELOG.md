@@ -2,6 +2,146 @@
 
 All notable project changes are recorded here.
 
+## 2026-08-30 — Final Pre-Publication Examination
+
+### Fixed And Refined
+
+- Added the missing **Background** navigation link to each project page and returned keyboard focus
+  to the mobile menu button when Escape closes the panel.
+- Standardized new-tab link protection and clarified the marketing experience, contact privacy, and
+  interactive-model wording without adding unsupported claims.
+- Corrected the five GLB download labels to their decimal web sizes and aligned the related project
+  documentation and asset register.
+- Improved light-theme project-tag contrast while preserving the existing design.
+- Updated all four pages to matching `?v=20260830-7` shared asset URLs so browsers request the final
+  stylesheet and JavaScript after deployment.
+
+### Verified
+
+- Reviewed all visitor-facing copy, four public pages, shared CSS and JavaScript, images, model
+  mappings, repository documentation, Git settings, and the complete working-tree diff.
+- Passed HTML semantics and references, JavaScript syntax, CSS structure and reviewed contrast,
+  responsive menu geometry, GLB metadata, public-asset registration, privacy/secret scans, unsafe
+  browser API checks, 35-resource localhost delivery, and Git whitespace checks.
+- Visually reviewed all eleven public project screenshots; no private names, chat, addresses,
+  credentials, personal paths, or other sensitive details are visible.
+- Recorded Chris's successful desktop and physical-phone verification. Remaining optional work is
+  limited to later content and optimization; there is no first-release blocker.
+- Chris approved the local release commit after completing his own final test. Push and GitHub Pages
+  publication remain manual later steps.
+
+## 2026-08-30 — Mobile Menu Width Correction
+
+### Fixed
+
+- Fixed the open mobile navigation panel sizing so it no longer collapses around the header buttons
+  and clips the **Background** or **Contact** labels.
+- Anchored the panel to the header's right edge and capped it to the viewport with the existing
+  responsive spacing and surface styles.
+- Restored the existing sidebar artwork treatment after the optional right-edge mask experiment was
+  rejected; no image fade behavior changed in this delivery.
+
+### Verified
+
+- Confirmed the mobile menu rule uses a viewport-safe width and remains limited to the existing
+  mobile breakpoint.
+- Confirmed all four public pages request matching `?v=20260830-6` stylesheet and JavaScript assets.
+- Nothing was committed, pushed, or published. The separately requested final whole-site UI and
+  paragraph examination is still waiting for Chris's explicit go signal.
+
+## 2026-08-30 — First-Release Sidebar And Detail Polish
+
+### Added
+
+- Added **Portfolio focus** text and a primary GitHub link over the integrated desktop artwork.
+- Added one softly blurred, randomly selected approved project image per fresh desktop page load.
+
+### Changed
+
+- Increased the space between the circular **CD** mark and Chris's name while restoring the original
+  navigation-link spacing.
+- Added a 0.75rem desktop left inset to the **CD** and theme circles so neither control touches the
+  browser edge; tablet and phone container spacing remains unchanged.
+- Extended the decorative image from beneath **Contact** to the bottom of the desktop sidebar,
+  removed the bordered/glass-card treatment, and changed the GitHub pill into a simple text link.
+- Added theme-aware fades and image opacity so light mode uses the cream sidebar treatment while
+  dark mode uses the near-black treatment.
+- Made the BantayGabi project-status card follow the contribution text on desktop and stop at the
+  end of that section; the card remains static after the layout stacks.
+- Blended the narrow-screen model poster with its stage background so the taller interactive area
+  no longer shows harsh letterbox bands before loading, without cropping the model.
+- Updated the model-library workflow explanation to describe multiple assets accurately and use
+  factual review wording.
+- Updated all public pages to the matching `?v=20260830-5` stylesheet and JavaScript cache query for
+  the sidebar polish delivery.
+
+### Accessibility And Performance
+
+- Kept the artwork decorative while leaving the focus text and GitHub link available to keyboards
+  and assistive technology.
+- Prevented the decorative image from loading below the desktop breakpoint or in short desktop
+  windows where it could crowd navigation and the theme control.
+- Kept the sidebar image stable for the full page visit; timed rotation and Motion effects remain
+  deferred.
+
+### Verified
+
+- JavaScript syntax, CSS brace balance, four-page sidebar/version consistency, local image paths,
+  duplicate IDs, GitHub-link safety, localhost responses, and Git diff whitespace passed.
+- Fresh 1440px dark and light desktop captures confirmed the borderless integrated artwork and
+  theme-specific fades. A 650px-high desktop capture confirmed the safe short-window fallback, and
+  a 500px responsive capture confirmed the unchanged mobile header.
+- Follow-up wide and short-desktop captures confirmed both circular controls align with the
+  sidebar's 0.75rem text inset, while another 500px capture confirmed no double mobile padding.
+
+### Publication Boundary
+
+- Nothing was committed, pushed, or published. The separately requested final whole-site UI and
+  paragraph examination is waiting for Chris's explicit go signal.
+
+## 2026-08-30 — Model Library And Preview Panel Stabilization
+
+### Fixed
+
+- Prevented model selection from replacing every model card with the selected model's fact values.
+- Restored model-specific rendered previews by reading numbered HTML attributes exactly as written.
+- Kept unused rendered-view controls hidden instead of displaying empty or broken choices.
+- Prevented browsers from combining a new stylesheet with stale JavaScript by giving both shared
+  assets a matching release-version query on every public page.
+
+### Changed
+
+- Collapsed the desktop game-preview panel into a visible **Previews** edge tab that expands on
+  pointer hover or keyboard focus.
+- Replaced the clipped-panel effect with a width-based translucent bar so collapsed thumbnails no
+  longer leave visible fragments or a cut edge.
+- Extended the caption gradient across the full media width and made its text follow the desktop
+  panel's open and closed states without timed disappearance.
+- Kept the complete preview rail visible on touch-first devices and at tablet/phone widths.
+- Aligned stale single-model wording and the Minecraft project title across public metadata,
+  homepage content, and project handoff cards.
+- Added beginner guidance for the corrected data-label pattern and for repairing single-sided or
+  incorrectly oriented model faces in Blender.
+
+### Verified
+
+- Node.js JavaScript syntax, five model mappings, seven render mappings, unique synchronized output
+  targets, hidden-render behavior, removed regression patterns, local HTTP responses, and Git
+  diff-whitespace checks passed.
+- All four public pages request the same CSS/JavaScript release version, and both versioned asset
+  URLs return HTTP 200 with the corrected model-library logic.
+- A second top-to-bottom local review passed JavaScript, CSS, HTML structure, 35 HTTP resources,
+  model/media counts, GLB/WebP headers, public-copy scans, secret-pattern scans, external Git
+  destinations, Git attributes, and diff-whitespace checks with no blocking automated finding.
+- Fresh 1440px desktop and 500px responsive Edge captures showed the seamless collapsed bar,
+  full-width caption treatment, readable media text, and complete lower preview rail.
+
+### Manual Check
+
+- Chris should refresh the already-running localhost preview and verify the seamless collapsed bar,
+  caption movement, keyboard expansion, and unchanged phone rail before a local follow-up commit.
+  This delivery is intentionally not pushed or published.
+
 ## 2026-08-29 — Final Portfolio Asset Integration And Repository Setup
 
 ### Added

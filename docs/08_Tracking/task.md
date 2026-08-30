@@ -2,9 +2,10 @@
 
 ## Current Delivery Status
 
-**Complete and ready for Chris's manual push after one interaction check.** The final code, content,
-asset, privacy, Git, and HTTP examination passed on 2026-08-29. The supplied repository is connected
-as `origin`; automated browser clicking remains unavailable because of a local runtime mismatch.
+**Final pre-publication examination and local verification complete; the release candidate is
+committed locally and ready for Chris to push.** Chris confirmed the current desktop and mobile
+experience is working correctly. The complete review found no blocking code, security, privacy,
+copy, responsive, or release-readiness issue. Push and publication remain manual later steps.
 
 ## Current Goal
 
@@ -13,11 +14,75 @@ Kumpuni media remain optional later additions, not launch blockers.
 
 ## In Progress
 
-- None. Before pushing, Chris should swipe the eight-image rail and switch/load at least two models
-  once on desktop or phone.
+- The authorized local commit is ready. Do not push or enable GitHub Pages; Chris will push manually.
+- After publication, verify the hosted GitHub Pages URL on desktop and phone because localhost tests
+  cannot confirm the final public hosting path or CDN behavior.
 
 ## Completed
 
+- Completed the authorized final top-to-bottom review of all four public pages, shared CSS and
+  JavaScript, public assets, model mappings, documentation, Git configuration, and working-tree diff.
+- Proofread the visitor-facing copy and tightened the marketing, contact-privacy, and model workflow
+  wording without inventing results or adding promotional buzzwords.
+- Added the missing **Background** destination to all project-page navigation menus, restored focus
+  to the mobile menu button after Escape closes the panel, and standardized safe new-tab link values.
+- Corrected displayed GLB download sizes to decimal web sizes (7.50–8.82 MB) and reconciled the
+  asset register, README, feature record, model guide, and walkthrough with the files on disk.
+- Improved the light-theme project-tag contrast from 3.93:1 to 4.82:1 while preserving the approved
+  palette; reviewed text combinations now meet the applicable WCAG AA target.
+- Passed HTML semantics and local-reference checks, JavaScript syntax, CSS structure and contrast,
+  model-header and metadata validation, asset registration, privacy/secret scans, responsive-menu
+  geometry, 35-resource localhost HTTP checks, and Git whitespace checks.
+- Visually reviewed all eight BantayGabi development captures and three Minecraft screenshots; no
+  player names, chat, server addresses, private paths, credentials, or personal data are visible.
+- Recorded Chris's successful desktop and physical-phone verification as the final interaction
+  evidence; automated live-browser interaction remains unavailable but is no longer the only check.
+- Added one desktop-only, randomized approved sidebar image per page load without a timer,
+  dependency, persistent storage, or mobile image request.
+- Added a keyboard-accessible **Portfolio focus** block and GitHub link consistently across all four
+  public pages, with a short-window fallback that preserves access to the theme button.
+- Corrected the intended brand spacing by separating the **CD** mark and Chris's name, while
+  restoring the original navigation-link spacing.
+- Inset the desktop **CD** and theme circles by `0.75rem` so they align with sidebar text instead of
+  touching the viewport edge, without adding a second inset to tablet/phone layouts.
+- Fixed the open mobile navigation width by anchoring it to the header's right edge with a
+  viewport-safe width; all five links now remain readable at common phone widths.
+- Verified matching `?v=20260830-6` shared assets on all four public pages, balanced CSS, valid
+  JavaScript syntax, successful localhost responses, and clean Git diff whitespace. Automated
+  browser interaction remains unavailable, so the phone-width menu click-through is Chris's manual
+  check.
+- Replaced the first bordered sidebar-card interpretation with artwork that begins beneath
+  **Contact**, fills the remaining sidebar, fades according to the selected theme, and reaches the
+  bottom behind the theme control.
+- Made only the BantayGabi project-status card sticky within its desktop contribution section and
+  returned it to static positioning when the layout stacks.
+- Blended the 4:3 phone model stage with the 16:9 poster background without cropping the gate.
+- Refined the model workflow heading, explanation, checklist, and on-demand wording for the
+  five-asset library.
+- Passed focused JavaScript, CSS, four-page consistency, local-reference, localhost HTTP, HTML ID,
+  external-link, visual desktop/responsive capture, and Git whitespace checks for this polish pass.
+- Separated model-card metadata from synchronized output fields so selecting a model no longer
+  replaces all five cards with a fact such as the GLB file size.
+- Corrected exact numbered render-attribute reads and restored all seven supplied rendered views.
+- Added an explicit hidden-render layout rule so models never show empty render choices.
+- Replaced the incomplete panel experiment with a discoverable desktop **Previews** edge tab that
+  expands on pointer hover or keyboard focus and stays complete on touch/tablet/phone layouts.
+- Added beginner guidance for the model-switching syntax and Blender face-orientation, normals,
+  Solidify, and double-sided-material options.
+- Passed JavaScript syntax, five-model/seven-render mapping, output-target, regression-pattern,
+  hidden-state, localhost HTTP, and diff-whitespace checks for the stabilization delivery.
+- Identified mixed browser caching from the screenshot evidence and versioned the shared stylesheet
+  and JavaScript consistently across all four public pages.
+- Confirmed all four pages request matching version values and that the corrected versioned assets
+  return HTTP 200 through the running localhost server.
+- Replaced the clipped full panel with a width-based translucent desktop bar, hid collapsed
+  thumbnail contents, and synchronized the full-width caption text with the panel state.
+- Aligned four stale visitor-facing phrases across the homepage, BantayGabi overview metadata and
+  library callout, and Minecraft return card.
+- Completed the full local code, copy, responsive-rule, asset, privacy, security, Git, and HTTP
+  review with no blocking automated finding; the remaining limitation is visual interaction QA.
+- Visually checked fresh headless Edge captures at 1440px and a 500px responsive layout; the
+  collapsed bar is seamless and the complete responsive rail remains readable below the media.
 - Repository onboarding and Git inspection.
 - Decision to use a basic static website without a backend.
 - Initial implementation plan and acceptance criteria.
@@ -103,6 +168,8 @@ These are optional later tasks, not unfinished work from the current delivery.
   recorded later; the current captures are acceptable for launch.
 - Consider one restrained scroll-reveal effect after publication; Motion or any other new dependency
   requires separate approval first.
+- Consider a slow, reduced-motion-aware timed sidebar crossfade after publication; the first release
+  intentionally keeps one image stable until the next page load.
 
 ## Deferred
 

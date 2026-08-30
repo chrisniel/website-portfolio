@@ -31,7 +31,10 @@ if (menuButton && navigation) {
   });
 
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") closeNavigation();
+    if (event.key === "Escape" && navigation.classList.contains("is-open")) {
+      closeNavigation();
+      menuButton.focus();
+    }
   });
 }
 
@@ -77,6 +80,34 @@ if (themeButton) {
     saveTheme(nextTheme);
   });
 }
+
+const sidebarFeature = document.querySelector("[data-sidebar-feature]");
+const sidebarDesktopQuery = window.matchMedia(
+  "(min-width: 68.0625rem) and (min-height: 45.0625rem)"
+);
+
+function loadSidebarArtwork() {
+  if (
+    !sidebarFeature ||
+    !sidebarDesktopQuery.matches ||
+    sidebarFeature.dataset.sidebarImageReady === "true"
+  ) return;
+
+  const artwork = sidebarFeature.querySelector("[data-sidebar-art]");
+  const images = (sidebarFeature.dataset.sidebarImages || "")
+    .split(",")
+    .map((imagePath) => imagePath.trim())
+    .filter(Boolean);
+
+  if (!artwork || images.length === 0) return;
+
+  const selectedImage = images[Math.floor(Math.random() * images.length)];
+  artwork.style.backgroundImage = `url("${selectedImage}")`;
+  sidebarFeature.dataset.sidebarImageReady = "true";
+}
+
+loadSidebarArtwork();
+sidebarDesktopQuery.addEventListener("change", loadSidebarArtwork);
 
 const modelViewerScripts = new Map();
 
@@ -472,9 +503,9 @@ document.querySelectorAll("[data-model-library]").forEach((library) => {
 
     angleChoices.forEach((angleChoice, index) => {
       const angleNumber = index + 1;
-      const angleSource = selectedModel.dataset[`modelAngle${angleNumber}Src`];
-      const angleAlt = selectedModel.dataset[`modelAngle${angleNumber}Alt`];
-      const angleText = selectedModel.dataset[`modelAngle${angleNumber}Label`];
+      const angleSource = selectedModel.getAttribute(`data-model-angle-${angleNumber}-src`);
+      const angleAlt = selectedModel.getAttribute(`data-model-angle-${angleNumber}-alt`);
+      const angleText = selectedModel.getAttribute(`data-model-angle-${angleNumber}-label`);
 
       angleChoice.hidden = !angleSource;
       angleChoice.dataset.gallerySrc = angleSource || "";
@@ -499,12 +530,12 @@ document.querySelectorAll("[data-model-library]").forEach((library) => {
 
     setText("[data-model-viewer-title]", selectedModel.dataset.modelTitle);
     setText("[data-model-detail-title]", selectedModel.dataset.modelTitle);
-    setText("[data-model-category]", selectedModel.dataset.modelCategory);
+    setText("[data-model-category-output]", selectedModel.dataset.modelCategory);
     setText("[data-model-detail-description]", selectedModel.dataset.modelDescription);
-    setText("[data-model-triangles]", selectedModel.dataset.modelTriangles);
-    setText("[data-model-vertices]", selectedModel.dataset.modelVertices);
-    setText("[data-model-materials]", selectedModel.dataset.modelMaterials);
-    setText("[data-model-size]", selectedModel.dataset.modelSize);
+    setText("[data-model-triangles-output]", selectedModel.dataset.modelTriangles);
+    setText("[data-model-vertices-output]", selectedModel.dataset.modelVertices);
+    setText("[data-model-materials-output]", selectedModel.dataset.modelMaterials);
+    setText("[data-model-size-output]", selectedModel.dataset.modelSize);
 
     const detailImage = document.querySelector("[data-model-detail-image]");
     if (detailImage) {

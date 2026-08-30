@@ -8,7 +8,7 @@ This folder contains the five public click-to-load BantayGabi previews:
 - `bantaygabi-house-05.glb`
 - `bantaygabi-large-house.glb`
 
-They are approximately 7.1–8.4 MB each, primarily because their textures are embedded. Only the
+They are approximately 7.5–8.8 MB each, primarily because their textures are embedded. Only the
 model selected by a visitor is downloaded. A later texture-size pass can improve loading further,
 but the current click-to-load files are suitable for the first publication.
 

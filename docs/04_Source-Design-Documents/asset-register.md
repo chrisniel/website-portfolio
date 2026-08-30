@@ -5,11 +5,11 @@ Record every externally sourced, collaborative, commissioned, or generated asset
 | Website file | Project/section | Creator/source | Permission or license | Required credit | Optimized size | Status |
 | --- | --- | --- | --- | --- | ---: | --- |
 | _Example: `assets/images/projects/example.webp`_ | _Example project_ | _Chris / source URL_ | _Owned / license_ | _None / credit text_ | _0 KB_ | _Draft_ |
-| `assets/models/bantaygabi-subdivision-gate.glb` | BantayGabi 3D library | Chris Daniel / Unity glTFast export | Created and supplied by Chris; approved for portfolio use | None | 7.15 MB | Approved; optional texture optimization later |
-| `assets/models/bantaygabi-house-01.glb` | BantayGabi 3D library | Chris Daniel / Unity glTFast export | Created and supplied by Chris; approved for portfolio use | None | 8.26 MB | Approved; optional texture optimization later |
-| `assets/models/bantaygabi-house-04.glb` | BantayGabi 3D library | Chris Daniel / Unity glTFast export | Created and supplied by Chris; approved for portfolio use | None | 7.59 MB | Approved; optional texture optimization later |
-| `assets/models/bantaygabi-house-05.glb` | BantayGabi 3D library | Chris Daniel / Blender glTF export | Created and supplied by Chris; approved for portfolio use | None | 8.25 MB | Approved; optional texture optimization later |
-| `assets/models/bantaygabi-large-house.glb` | BantayGabi 3D library | Chris Daniel / Blender glTF export | Created and supplied by Chris; approved for portfolio use | None | 8.41 MB | Approved; optional texture optimization later |
+| `assets/models/bantaygabi-subdivision-gate.glb` | BantayGabi 3D library | Chris Daniel / Unity glTFast export | Created and supplied by Chris; approved for portfolio use | None | 7.50 MB | Approved; optional texture optimization later |
+| `assets/models/bantaygabi-house-01.glb` | BantayGabi 3D library | Chris Daniel / Unity glTFast export | Created and supplied by Chris; approved for portfolio use | None | 8.67 MB | Approved; optional texture optimization later |
+| `assets/models/bantaygabi-house-04.glb` | BantayGabi 3D library | Chris Daniel / Unity glTFast export | Created and supplied by Chris; approved for portfolio use | None | 7.96 MB | Approved; optional texture optimization later |
+| `assets/models/bantaygabi-house-05.glb` | BantayGabi 3D library | Chris Daniel / Blender glTF export | Created and supplied by Chris; approved for portfolio use | None | 8.65 MB | Approved; optional texture optimization later |
+| `assets/models/bantaygabi-large-house.glb` | BantayGabi 3D library | Chris Daniel / Blender glTF export | Created and supplied by Chris; approved for portfolio use | None | 8.82 MB | Approved; optional texture optimization later |
 | `assets/images/posters/bantaygabi-subdivision-gate-poster.webp` | BantayGabi 3D library | Chris Daniel / project render | Created and supplied by Chris; approved for portfolio use | None | 49 KB | Approved |
 | `assets/images/posters/bantaygabi-subdivision-gate-front.webp` | BantayGabi 3D library | Chris Daniel / project render | Created and supplied by Chris; approved for portfolio use | None | 28 KB | Approved |
 | `assets/images/posters/bantaygabi-subdivision-gate-wide.webp` | BantayGabi 3D library | Chris Daniel / project render | Created and supplied by Chris; approved for portfolio use | None | 119 KB | Approved |
@@ -22,6 +22,7 @@ Record every externally sourced, collaborative, commissioned, or generated asset
 | `assets/images/posters/bantaygabi-large-house-aerial.webp` | BantayGabi 3D library | Chris Daniel / project render | Created and supplied by Chris; approved for portfolio use | None | 23 KB | Approved |
 | `assets/images/posters/bantaygabi-large-house-front.webp` | BantayGabi 3D library | Chris Daniel / project render | Created and supplied by Chris; approved for portfolio use | None | 15 KB | Approved |
 | `assets/images/posters/bantaygabi-large-house-angle.webp` | BantayGabi 3D library | Chris Daniel / project render | Created and supplied by Chris; approved for portfolio use | None | 22 KB | Approved |
+| `assets/images/projects/bantaygabi-game-poster.png` | BantayGabi overview | Chris Daniel / development capture | Supplied and approved by Chris for portfolio use | None | 597 KB | Approved |
 | `assets/images/projects/bantaygabi-game-preview-01.webp` | BantayGabi game carousel | Chris Daniel / development capture | Supplied and approved by Chris for portfolio use | None | 213 KB | Approved |
 | `assets/images/projects/bantaygabi-game-preview-02.webp` | BantayGabi game carousel | Chris Daniel / development capture | Supplied and approved by Chris for portfolio use | None | 124 KB | Approved |
 | `assets/images/projects/bantaygabi-game-preview-03.webp` | BantayGabi game carousel | Chris Daniel / development capture | Supplied and approved by Chris for portfolio use | None | 104 KB | Approved |

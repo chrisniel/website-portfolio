@@ -29,7 +29,7 @@ through a small local web server because browsers can block model files opened t
 11. If loading genuinely stalls for 45 seconds, confirm the poster remains and the retry button appears.
 12. Press `Ctrl+C` in PowerShell when finished.
 
-The page downloads Google's pinned `<model-viewer>` library and only the selected 7.1–8.4 MB GLB
+The page downloads Google's pinned `<model-viewer>` library and only the selected 7.5–8.8 MB GLB
 after its load button is selected. An internet connection is needed for the library.
 
 ## Test On A Phone
@@ -62,6 +62,58 @@ If the phone cannot connect:
 4. At phone width, confirm the rail moves below the media and scrolls horizontally.
 5. Confirm the complete selected image remains visible rather than stretched or heavily cropped.
 6. When a real video is added later, start it, change previews, and confirm it pauses.
+
+On a desktop with a mouse, the left panel now collapses to a narrow **Previews** tab so it does not
+cover the image while you are looking at it. Move the pointer over that tab to expand it. Pressing
+`Tab` until a preview control receives focus also expands it for keyboard users. At tablet and phone
+widths, or on a touch-first device, the complete rail stays visible below the image because touch
+screens do not have dependable hover.
+
+While the desktop panel is collapsed, only the translucent **Previews** bar remains—thumbnail pieces
+should not show. The caption gradient always spans the full lower edge, while its text slides right
+when the panel opens and returns left when it closes. The description does not disappear on a timer,
+so visitors can read it at their own pace.
+
+## Understand The Model-Switching Fix
+
+The model cards in `projects/bantaygabi-models.html` contain values beginning with `data-model-`.
+Think of these as small labels that let JavaScript find information in the HTML.
+
+- Labels such as `data-model-size` store a value on each selectable model card.
+- Labels ending in `-output`, such as `data-model-size-output`, identify the separate place where
+  that value should be displayed.
+- Render labels contain a number, such as `data-model-angle-1-src`. JavaScript reads that exact
+  written name with `getAttribute()` so the browser cannot interpret the number differently.
+- An unavailable render button uses the standard `hidden` attribute, and the stylesheet has a
+  matching `.gallery-thumb[hidden]` rule that keeps it out of the layout.
+
+Keeping the stored values and output locations separate prevents JavaScript from replacing the
+contents of the five model cards. When testing a JavaScript change, use `Ctrl+F5` once so the browser
+does not reuse an older cached copy.
+
+Each public HTML page also adds the same small version query to the shared CSS and JavaScript URLs,
+for example `main.js?v=20260830-7`. The query does not create another file or need a backend. It tells
+the browser that this release should be downloaded separately from an older cached copy. When a
+future code delivery changes either shared file, update both version values on all four HTML pages.
+
+## Fix A See-Through GLB In Blender
+
+The website should not alter the supplied GLB to hide geometry problems. If the inside of a model
+looks transparent, inspect and repair the source in Blender:
+
+1. Open the source model and enable **Viewport Overlays → Face Orientation**.
+2. Enter Edit Mode, press `A` to select the mesh, then press `Shift+N` and choose
+   **Recalculate Outside**. Outward-facing surfaces should display consistently.
+3. If a wall or roof is only a flat plane, add a small **Solidify** modifier so it has real thickness.
+   This is usually the best choice for building parts that should have an inside and outside.
+4. If the surface is intentionally paper-thin, disable **Backface Culling** in its material so the
+   exported GLB can mark that material as double-sided.
+5. Export a new GLB, replace only its matching file under `assets/models/`, then repeat the local
+   model test above before committing it.
+
+Make a backup of the Blender source before applying modifiers. Replacing a GLB with the same public
+filename avoids HTML or JavaScript changes, but its model facts may need updating if the geometry
+count or file size changes.
 
 ## Replace The BantayGabi Media
 
@@ -139,16 +191,27 @@ Do not mark every repeated term. Too many explanation controls make paragraphs h
 
 ## Manual Checks After Changes
 
+- Use `Ctrl+F5` once after this stabilization update so the newest JavaScript and CSS load.
 - Open both project pages at desktop width.
 - Open the BantayGabi model library from the overview page.
+- On the BantayGabi contribution section, confirm the project-status card follows the text while
+  scrolling and stops when that section ends.
 - Narrow the browser to roughly 320px and confirm there is no sideways page scrolling.
+- Confirm the project-status card returns to normal document flow after the two columns stack.
 - Open and close the mobile menu, including with the `Escape` key.
 - Switch between light and dark themes.
 - Use `Tab` to reach every gallery choice, link, and button.
 - Confirm the selected media, model, and angle choices have visible borders.
 - Confirm all eight game thumbnails and all five model cards can be reached by scrolling their rails.
+- Confirm model cards remain complete after switching among all five models.
+- Confirm only supplied rendered views appear and no empty **Additional render** choice is visible.
+- On mouse-based desktop, confirm the **Previews** edge tab expands on hover and keyboard focus.
+- Confirm no thumbnail fragments remain in the collapsed bar and the caption text follows the panel.
+- At tablet/phone width, confirm the complete preview rail stays visible without hover.
 - After loading 3D, confirm every image choice hides the viewer completely.
 - Confirm **Close 3D** returns to the poster and reopening does not create a second viewer.
+- Before loading 3D at phone width, confirm the poster remains uncropped and the extra stage area
+  blends into the same gray background instead of showing black bands.
 - Confirm a failed or very slow load leaves the poster visible and provides a retry button.
 - Confirm the project page remains understandable before loading 3D or when loading fails.
 - Open several highlighted terms, confirm only one explanation appears, and close it with Escape.

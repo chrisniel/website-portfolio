@@ -11,10 +11,10 @@ Status: Completed.
 
 Status: Partially completed. BantayGabi and Minecraft media are live; Kumpuni media remains.
 
-- Choose one strong image for BantayGabi.
-- Choose one strong image for Kumpuni.
-- Choose one useful Minecraft server/documentation image.
-- Optimize files and record ownership in the asset register.
+- Eight approved BantayGabi development captures are published in the manual carousel.
+- Three privacy-safe Minecraft screenshots are published in the archived case study.
+- The current public media is optimized and recorded in the asset register.
+- Choose Kumpuni media only when an approved image adds enough context for a useful case study.
 
 ## Phase 3 — First Interactive Model
 
