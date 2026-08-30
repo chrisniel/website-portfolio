@@ -2,6 +2,48 @@
 
 All notable project changes are recorded here.
 
+## 2026-08-31 — Develop-Branch Animation Experiment
+
+### Added
+
+- Added dependency-free, one-time section reveals with brief project/skill staggering and shorter
+  vertical movement on tablet and phone layouts.
+- Added a restrained entrance for the decorative **Forms / Play / Build** cards, pointer-only hover
+  lift for project and skill cards, and accent-gradient transitions for primary project actions.
+- Added three decorative jumping dots and `aria-busy` state to the existing readable 3D loading
+  status; the treatment clears for ready, retry, error, close, and model-selection states.
+- Added dependency-free responsive preview transitions: directional desktop still-image swaps,
+  shorter phone rise/fades, caption feedback, and poster/live-3D crossfades.
+- Added one progressive active-choice outline that glides between carousel thumbnails and model
+  render choices while preserving each button's native selection state and fallback border.
+
+### Changed
+
+- Changed the BantayGabi 3D-library promotion from the gate poster to the large residential-house
+  render and paired its desktop image/copy reveals; smaller layouts use vertical movement.
+- Updated all four pages to matching `?v=20260831-3` shared asset URLs after the motion and
+  media-transition work.
+- Documented the experiment, safe customization, manual checks, and the deferred desktop-first
+  pinned-section/scrollytelling and hero-orbit concepts.
+
+### Verified
+
+- Passed JavaScript syntax, balanced CSS, shared-version, local-image, and Git whitespace checks.
+- Measured a true 390px emulated viewport with matching document/body widths and no horizontal
+  overflow; cards reveal as they enter the phone viewport.
+- Confirmed reduced-motion mode creates no reveal or hero-motion state and leaves hero/project
+  content visible.
+- Confirmed the loading helper creates three assistive-tech-hidden dots while busy, removes them
+  afterward, and retains the readable status message.
+- Confirmed desktop horizontal and phone vertical image motion, a true 390px no-overflow layout,
+  rapid-selection cancellation, one correctly sized indicator per gallery, static-render swaps,
+  poster/live-viewer open and close crossfades, and immediate reduced-motion updates with zero
+  JavaScript animation calls.
+- Visually reviewed the 1440×900 homepage and BantayGabi large-house promotion in headless Edge.
+- Visually reviewed the model-render stage and selected-outline treatment at 1440×1000 in headless
+  Edge.
+- No commit, push, merge, GitHub Pages change, dependency, or paid service was introduced.
+
 ## 2026-08-31 — Post-Launch Responsive Feedback Polish
 
 ### Changed

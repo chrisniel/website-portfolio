@@ -51,6 +51,62 @@ Create a small, beginner-friendly portfolio website for Chris Daniel that can be
 
 ---
 
+## Dependency-Free Animation Experiment — 2026-08-31
+
+### Goal
+
+Test a restrained motion layer on the `develop` branch without changing the published `main`
+branch, the static architecture, or the meaning and availability of any portfolio content.
+
+### Intended Result
+
+- Page sections reveal once with a short fade and small vertical movement.
+- Homepage project and skill cards reveal with a brief stagger and receive a small pointer-only
+  hover lift.
+- The decorative **Forms / Play / Build** cards settle into their existing positions when the hero
+  loads; they do not follow the visitor through the whole page.
+- Primary and secondary actions receive a restrained color-gradient transition without moving the
+  clickable target.
+- The 3D model status shows three decorative jumping dots while the viewer script or model is
+  loading, while retaining readable live-region text and percentage progress.
+- The BantayGabi library promotion reveals its image before its copy and uses the approved large
+  residential-house render as the visual.
+
+### Affected Files
+
+- `assets/css/styles.css`
+- `assets/js/main.js`
+- `index.html`
+- `projects/bantaygabi.html`
+- `projects/bantaygabi-models.html`
+- `projects/minecraft-server-administration.html`
+- Closest tracking, walkthrough, and changelog documentation.
+
+### Acceptance Criteria
+
+- No animation library, framework, build step, backend, or paid service is introduced.
+- Content remains visible and usable when JavaScript or `IntersectionObserver` is unavailable.
+- `prefers-reduced-motion: reduce` removes the entrance, hover-movement, and loading-dot motion.
+- Mobile uses shorter reveal distances and does not depend on hover.
+- Scroll-linked hero pinning remains deferred.
+- Loading, success, timeout, error, model switching, closing, and reopening keep their existing text
+  and behavior.
+- All four pages request the same updated shared-asset version.
+- JavaScript syntax, CSS structure, local references, responsive layout, localhost delivery, and Git
+  whitespace checks pass before Chris performs the final visual test.
+
+### Deferred Follow-Up
+
+- Prototype a desktop-only pinned-section or “scrollytelling” transition in which a major section
+  remains in the viewport while its inner content exits and the next differently colored section
+  becomes the focus.
+- Test the idea on one Hero → Projects transition before considering Projects → Skills; keep normal
+  document scrolling on phones, short laptop screens, and reduced-motion configurations.
+- Preserve section-link navigation and avoid creating a scroll trap or applying the effect to every
+  part of the portfolio.
+
+---
+
 ## Publication Readiness Fix And Editorial Pass — 2026-08-29
 
 ### Goal
@@ -1176,3 +1232,60 @@ Source and localhost checks passed. Headless Edge captures were reviewed at 1920
 with no overflow. At 1536×864, the artwork moved from 77px at page start to its 32px sticky inset,
 then left the viewport with the hero boundary. The changes remain uncommitted and unpublished for
 Chris's browser review.
+
+## Responsive Media Transitions — 2026-08-31
+
+### Intended Result
+
+Make manual preview changes feel connected without delaying navigation or adding a library. Static
+images should move horizontally on wider screens and rise a shorter distance on phones. Switching
+between a poster and the live 3D viewer should crossfade because the viewer is an interactive
+surface rather than another still image. The active preview outline should glide to the selected
+choice as an optional shared-layout-style detail.
+
+### Affected Files And Prerequisites
+
+- `assets/js/main.js`: add reusable image preparation, latest-selection-wins swapping, caption
+  feedback, and active-indicator positioning; connect them to the BantayGabi carousel and model
+  gallery without changing their media data or model-loading lifecycle.
+- `assets/css/styles.css`: style the progressive active indicator and give animated media stable
+  compositor behavior while preserving the existing fallback borders.
+- All four public HTML pages: advance the shared asset version after the changed CSS and JavaScript.
+- Existing walkthrough, task tracker, and changelog: explain the behavior, tests, and safe tuning.
+
+No package, build tool, framework, paid service, or Motion.dev dependency is required. Chris's
+approved 1000-millisecond section reveal and 150-millisecond card stagger remain unchanged.
+
+### Acceptance Checks
+
+- Desktop still-image selections use a restrained directional slide and fade; phone selections use
+  a shorter upward fade that does not introduce horizontal overflow.
+- Incoming images are prepared before the visible swap, and rapid selections resolve to the newest
+  choice rather than allowing an older animation to overwrite it.
+- Poster/live-3D changes crossfade only; the interactive model canvas is never slid across the stage.
+- Captions update with the selected preview, videos remain manual and lazy, and existing 3D loading,
+  retry, close, reopen, model-switching, and timeout states remain functional.
+- The active outline follows click, arrow, keyboard, model, and render selections; the normal active
+  border remains as a progressive fallback if JavaScript is unavailable.
+- Reduced-motion mode performs immediate swaps and retains visible selection state.
+- JavaScript syntax, CSS structure, four-page versions and references, responsive geometry,
+  interaction regression checks, localhost responses, and Git whitespace pass.
+
+### Scope Boundary
+
+Pinned-section scrollytelling and animated orbit nodes in the hero illustration are documented as
+the next separate experiments. This delivery does not commit, push, merge, or publish anything.
+
+### Delivery Result
+
+Implemented locally on `develop` with the existing Web Animations API and no package. The carousel
+and model-render gallery share image preparation, a 900-millisecond preload safety limit,
+latest-selection-wins cancellation, responsive movement, and one resized/repositioned active
+outline. Viewer opening, successful load, and closing use crossfades only. Chris's 1000-millisecond
+section transform and 150-millisecond card stagger remain unchanged.
+
+Automated Edge checks passed for directional desktop and vertical phone keyframes, rapid final-state
+accuracy, one active button and indicator, a true 390px document width with no overflow, static
+render selection, simulated ready-viewer open/close behavior, and reduced-motion updates with zero
+JavaScript animation calls. JavaScript syntax, CSS balance, shared versions, localhost responses,
+and Git whitespace also pass. The changes remain uncommitted and unpublished for Chris's review.
