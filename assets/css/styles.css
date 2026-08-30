@@ -478,6 +478,7 @@ main,
   inset: 50% auto auto 50%;
   border: 1px solid var(--line);
   border-radius: 50%;
+  pointer-events: none;
   transform: translate(-50%, -50%) rotate(-20deg);
 }
 
@@ -490,6 +491,68 @@ main,
   width: 46%;
   height: 78%;
   transform: translate(-50%, -50%) rotate(35deg);
+}
+
+.orbit-node {
+  position: absolute;
+  z-index: 1;
+  left: 100%;
+  top: 50%;
+  width: 0.58rem;
+  aspect-ratio: 1;
+  border: 1px solid color-mix(in srgb, var(--accent) 72%, #ffffff);
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow:
+    0 0 0 0.28rem color-mix(in srgb, var(--accent) 12%, transparent),
+    0 0 1rem color-mix(in srgb, var(--accent) 55%, transparent);
+  transform: translate(-50%, -50%);
+  animation: hero-orbit-node 18s linear infinite;
+}
+
+.orbit-node-companion {
+  width: 0.38rem;
+  border-color: color-mix(in srgb, var(--text) 42%, var(--line));
+  background: color-mix(in srgb, var(--text) 58%, var(--accent));
+  box-shadow: 0 0 0.75rem color-mix(in srgb, var(--text) 24%, transparent);
+}
+
+.orbit-one .orbit-node-companion {
+  left: 0;
+  animation-delay: -9s;
+}
+
+.orbit-two .orbit-node-primary {
+  left: 85.355%;
+  top: 85.355%;
+  animation-delay: -2.1s;
+}
+
+.orbit-two .orbit-node-companion {
+  left: 14.645%;
+  top: 14.645%;
+  animation-delay: -11.1s;
+}
+
+@supports (offset-path: ellipse(50% 50% at 50% 50%)) {
+  .orbit-node {
+    left: 0;
+    top: 0;
+    offset-anchor: center;
+    offset-path: ellipse(50% 50% at 50% 50%);
+    offset-rotate: 0deg;
+    transform: none;
+  }
+
+  @keyframes hero-orbit-node {
+    from {
+      offset-distance: 0%;
+    }
+
+    to {
+      offset-distance: 100%;
+    }
+  }
 }
 
 .art-card {
@@ -2228,5 +2291,27 @@ model-viewer.is-viewer-loading {
   .project-card:hover,
   .skill-card:hover {
     transform: none !important;
+  }
+
+  .orbit-node {
+    animation: none !important;
+  }
+
+  @supports (offset-path: ellipse(50% 50% at 50% 50%)) {
+    .orbit-one .orbit-node-primary {
+      offset-distance: 0%;
+    }
+
+    .orbit-one .orbit-node-companion {
+      offset-distance: 50%;
+    }
+
+    .orbit-two .orbit-node-primary {
+      offset-distance: 11.667%;
+    }
+
+    .orbit-two .orbit-node-companion {
+      offset-distance: 61.667%;
+    }
   }
 }

@@ -2,23 +2,37 @@
 
 ## Current Delivery Status
 
-**Published version is live; responsive media transitions are implemented on `develop`.** Chris
-confirmed the first motion experiment works after tuning its reveal and stagger timings, then
-approved a dependency-free transition pass for the manual image galleries.
+**Published version is live; the committed gallery motion is stable and hero orbit nodes are
+implemented on `develop`.** Chris committed the verified gallery work at `4ef2d93`, then approved a
+smaller decorative orbit pass before the separate scrollytelling experiment. Live review found a
+small wiggle in the first checkpoint-based orbit movement; the path is now continuous and awaits
+Chris's visual confirmation before the orbit pass is considered ready.
 
 ## Current Goal
 
-Have Chris visually test the responsive preview transitions and gliding active-choice outline
-before the separate scrollytelling experiment begins.
+Have Chris visually verify the corrected continuous, collision-safe hero orbits before the separate
+scrollytelling experiment begins.
 
 ## In Progress
 
-- Chris: verify the game-preview carousel, model renders, and real interactive-model open/close on
-  desktop and phone.
-- Keep Motion.dev, scrollytelling, and the proposed hero orbit nodes deferred as separate ideas.
+- Chris: verify the corrected orbit speed, visual weight, spacing at line crossings, and phone
+  appearance.
+- Keep Motion.dev and scrollytelling deferred as separate work.
 - Do not commit, push, merge, or publish the experiment without Chris's separate approval.
 
 ## Completed
+
+- Replaced the reported 16-checkpoint orbit wiggle with a continuous CSS ellipse that animates only
+  `offset-distance`, while retaining static fallback positions for older browsers.
+- Verified four continuous paths, no animated layout coordinates, at least 102px measured separation,
+  containment and no overflow at five responsive widths, plus four static reduced-motion positions.
+- Added two decorative nodes per existing hero ellipse with a primary/companion hierarchy.
+- Used one 18-second period, opposite partners, and a 2.1-second cross-path phase to prevent visible
+  collisions; after smoothing, measured approximately 147px desktop and 115px phone clearance
+  through a complete cycle.
+- Added four distinct static reduced-motion positions and kept every node non-focusable,
+  pointer-transparent, and inside an `aria-hidden` parent.
+- Verified no overflow or escaped node at 320px, 390px, 768px, 1024px, and 1440px widths.
 
 - Added directional desktop still-image swaps and shorter vertical phone swaps to the BantayGabi
   game carousel and 3D render gallery, with caption feedback and preloading safety.
@@ -200,8 +214,6 @@ These are optional later tasks, not unfinished work from the current delivery.
   recorded later; the current captures are acceptable for launch.
 - Prototype the approved pinned-section/scrollytelling idea as a separate desktop-first experiment,
   with normal document flow on phones, short screens, and reduced-motion setups.
-- Consider two or three subtle orbit nodes around the hero artwork's existing ellipses; keep them
-  static for reduced motion and avoid a loading-spinner appearance.
 - Consider a slow, reduced-motion-aware timed sidebar crossfade after publication; the first release
   intentionally keeps one image stable until the next page load.
 

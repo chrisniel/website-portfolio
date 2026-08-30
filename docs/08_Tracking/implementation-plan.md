@@ -1289,3 +1289,76 @@ accuracy, one active button and indicator, a true 390px document width with no o
 render selection, simulated ready-viewer open/close behavior, and reduced-motion updates with zero
 JavaScript animation calls. JavaScript syntax, CSS balance, shared versions, localhost responses,
 and Git whitespace also pass. The changes remain uncommitted and unpublished for Chris's review.
+
+## Hero Orbit Nodes — 2026-08-31
+
+### Intended Result
+
+Add restrained movement to the existing two elliptical hero lines without making the illustration
+look like a loading indicator. Each ellipse receives two decorative nodes: one warm accent node and
+one smaller, dimmer companion. All four share one slow period with deliberately different starting
+phases, so their relative spacing stays fixed and they do not visibly collide where the ellipses
+cross.
+
+### Affected Files And Approach
+
+- `index.html`: place two assistive-technology-hidden node spans inside each existing orbit.
+- `assets/css/styles.css`: move the nodes around their responsive parent ellipse, preserve their
+  proportions at every existing hero height, and stop them at distinct positions for reduced motion.
+- All four public pages: advance the shared asset version so every page requests the updated CSS.
+- Existing walkthrough, task tracker, and changelog: record behavior, tuning, and verification.
+
+Use CSS only. Add no JavaScript, SVG replacement, package, framework, or third-party service.
+
+### Acceptance Checks
+
+- Four nodes are visible: two per ellipse, with clear size/brightness hierarchy.
+- Nodes follow the existing rotated ellipses on desktop, tablet, and phone without changing the
+  cards, hero dimensions, sticky boundary, or content order.
+- A shared period and non-intersecting phase offsets avoid visible node collisions.
+- Nodes are decorative, ignore pointer input, inherit the parent `aria-hidden` state, and never
+  become focusable.
+- Reduced-motion mode stops every node at a different intentional position.
+- The homepage has no horizontal overflow at 320px, 390px, 768px, 1024px, and 1440px widths.
+- HTML references and IDs, CSS structure, shared versions, localhost delivery, and Git whitespace
+  checks pass.
+
+### Scope Boundary
+
+Pinned-section scrollytelling remains the next separate feature. This orbit delivery does not
+commit, push, merge, publish, or alter the existing gallery and section-reveal timings.
+
+### Delivery Result
+
+Implemented locally with four CSS-only spans inside the existing two hidden ellipse containers.
+Each path has a primary and companion node. All four use an 18-second period; the same-path nodes
+are opposite, and the second path starts 2.1 seconds later. Reduced motion removes the animation and
+uses four separate underlying positions.
+
+Headless Edge verified the full-cycle phase geometry with approximately 120px minimum desktop and
+91px minimum 390px-phone clearance, four nodes and animations, distinct sizes and delays, no
+focusable node, inherited
+`aria-hidden` state, and no overflow or escaped node at 320px, 390px, 768px, 1024px, and 1440px.
+The work remains uncommitted and unpublished for Chris's visual review.
+
+### Orbit Motion Smoothing Follow-Up — 2026-08-31
+
+Chris's live review found that the nodes look slightly shaky while travelling. The current animation
+interpolates `left` and `top` across 16 checkpoints, which approximates each ellipse with short
+straight segments and changes direction at every checkpoint. Those layout-position updates can also
+round differently between frames.
+
+Replace only that movement rule with a continuous CSS elliptical motion path. Preserve the existing
+four nodes, 18-second period, phase spacing, appearance, responsive ellipse sizes, static fallback,
+and reduced-motion behavior. Verify that the animated keyframes no longer change `left` or `top`,
+that every node still tracks its parent line, and that collision clearance and page containment remain
+safe on desktop and phone. No dependency, JavaScript, media asset, commit, push, merge, or publication
+is part of this correction.
+
+Implemented the continuous motion path inside a feature query while retaining the original static
+coordinates as the older-browser fallback. Headless Edge confirmed that all four keyframes animate
+only `offset-distance`, each computed path is a percentage-based ellipse, and all four nodes remain
+inside the hero at 320px, 390px, 768px, 1024px, and 1440px. The minimum measured node separation was
+approximately 103px at 320px and 115px at 390px. Reduced-motion emulation produces zero running node
+animations and four distinct fixed centers. All four pages now use the matching `?v=20260831-5`
+asset version.

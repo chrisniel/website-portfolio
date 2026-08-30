@@ -2,6 +2,39 @@
 
 All notable project changes are recorded here.
 
+## 2026-08-31 — Hero Orbit Nodes Experiment
+
+### Added
+
+- Added two CSS-only decorative nodes to each existing hero ellipse: one warm accent node and one
+  smaller, dimmer companion.
+- Added an 18-second shared orbit with opposite partners and a fixed 2.1-second cross-path phase so
+  the four nodes remain separated instead of visibly colliding.
+- Added intentional static positions for all four nodes when reduced motion is requested.
+
+### Changed
+
+- Replaced the first 16-checkpoint `left`/`top` orbit approximation with a continuous elliptical CSS
+  motion path after live review exposed a slight direction-change wiggle.
+- Kept static `left`/`top` positions as a progressive fallback for browsers without elliptical motion
+  path support.
+- Updated all four pages to matching `?v=20260831-5` shared asset URLs.
+- Documented orbit behavior, safe timing customization, manual checks, and the still-deferred
+  scrollytelling feature.
+
+### Verified
+
+- Measured all four nodes over a complete simulated orbit; the smallest cross-path clearance was
+  approximately 147px on desktop and 115px on a 390px phone after smoothing.
+- Confirmed four moving nodes at desktop and phone sizes, four distinct static positions in reduced
+  motion, no focusable decorative elements, and inherited assistive-technology hiding.
+- Confirmed the nodes remain inside the hero and create no page overflow at 320px, 390px, 768px,
+  1024px, and 1440px widths.
+- Confirmed the corrected animation keyframes change only `offset-distance`, with continuous
+  curvature and no animated layout coordinates; measured at least 102px node separation across the
+  five tested viewport widths.
+- No dependency, JavaScript behavior, commit, push, merge, or publication was introduced.
+
 ## 2026-08-31 — Develop-Branch Animation Experiment
 
 ### Added

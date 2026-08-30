@@ -16,12 +16,15 @@ This guide explains the lightweight animation experiment on the `develop` branch
   phones; poster/live-3D changes crossfade without moving the interactive canvas.
 - One accent outline glides between preview choices while each real button keeps its accessible
   `aria-pressed` selection state.
+- Four decorative nodes travel around the two hero ellipses: one accent and one smaller companion
+  per path, with fixed phases that prevent visible collisions.
 
 The implementation uses only the existing files:
 
 - `assets/css/styles.css` contains the motion appearance, durations, responsive rules, and
   reduced-motion fallback.
 - `assets/js/main.js` observes when content enters the viewport and manages the loading-dot markup.
+- `index.html` contains the four decorative orbit-node spans inside the existing hidden illustration.
 - `projects/bantaygabi.html` selects the large residential-house render for the library promotion.
 
 No Motion.dev package, third-party animation library, build command, or paid service is required.
@@ -59,6 +62,27 @@ The moving outline is a decorative `span` inserted by JavaScript. It copies the 
 position and size but has `pointer-events: none` and `aria-hidden="true"`. If JavaScript is unavailable,
 the original active button border remains, so selection never depends on the decorative effect.
 
+## How The Hero Orbits Work
+
+Each existing `.orbit` contains two empty spans. In browsers that support CSS motion paths, each
+span follows a true ellipse by changing only its `offset-distance`. This produces one continuous
+curve instead of approximating the ellipse with short straight segments, so the nodes no longer
+appear to wiggle at direction changes. The same percentage-based path follows the wide and tall
+ellipses at every responsive size, while each parent still supplies its own rotation.
+
+The original `left` and `top` values remain as intentional static positions for an older browser
+that does not support elliptical motion paths. This is a **progressive fallback**: modern browsers
+receive the full movement, while older browsers keep the decoration in a safe visible position.
+
+All nodes use the same 18-second period and direction. Partners on one ellipse stay half a lap apart.
+The second ellipse begins 2.1 seconds later than the first, so the relative phases never drift and
+the nodes do not converge at the places where the lines cross. The larger node uses the warm accent;
+the companion is smaller and dimmer to avoid a loading-spinner appearance.
+
+The orbit containers already have `aria-hidden="true"`, and the nodes cannot receive focus or pointer
+input. Under `prefers-reduced-motion: reduce`, CSS removes their animations and leaves all four at
+different fixed positions.
+
 ## Reduced Motion And Touch Devices
 
 The `prefers-reduced-motion: reduce` block in `assets/css/styles.css` removes movement and keeps all
@@ -81,20 +105,23 @@ The status also exposes `aria-busy="true"` only while loading.
 2. Start the local site with `python -m http.server 8000` if it is not already running.
 3. Open `http://127.0.0.1:8000/index.html`.
 4. Reload once and check that **Forms / Play / Build** settle into place.
-5. Scroll through Projects and Skills slowly; cards should reveal once and remain visible.
-6. With a mouse, hover a project card, skill card, and button. Cards should move only slightly and
+5. Watch both hero ellipses for one full lap if practical. Each should carry two nodes, and the nodes
+   should remain separated when they pass the line crossings.
+6. Scroll through Projects and Skills slowly; cards should reveal once and remain visible.
+7. With a mouse, hover a project card, skill card, and button. Cards should move only slightly and
    buttons should not shift position.
-7. Open `http://127.0.0.1:8000/projects/bantaygabi.html` and check the large-house library panel.
-8. Open the 3D model library, load a model, and confirm the dots appear during loading and disappear
+8. Open `http://127.0.0.1:8000/projects/bantaygabi.html` and check the large-house library panel.
+9. Open the 3D model library, load a model, and confirm the dots appear during loading and disappear
    when the viewer succeeds or reports a problem.
-9. In the game-preview rail, try the arrows and several thumbnails. The image should follow the
+10. In the game-preview rail, try the arrows and several thumbnails. The image should follow the
    selection direction, the caption should update, and rapid clicks should end on the final choice.
-10. In the 3D library, choose different models and rendered views. Still images should slide, while
+11. In the 3D library, choose different models and rendered views. Still images should slide, while
     opening or closing the interactive viewer should only crossfade.
-11. Repeat at phone width. Preview images should rise a short distance, the active outline should
+12. Repeat at phone width. The orbit nodes must stay inside the hero, preview images should rise a
+    short distance, the active outline should
     follow the selected button, and the page must not scroll sideways.
-12. If available, enable reduced motion temporarily and reload; everything should appear immediately
-    without entrance movement.
+13. If available, enable reduced motion temporarily and reload; everything should appear immediately
+    without entrance movement, and the four hero nodes should stay at different fixed positions.
 
 ## Safe Customization
 
@@ -106,6 +133,12 @@ The status also exposes `aria-busy="true"` only while loading.
 - Image movement and duration: search for `transitionMedia()` in `assets/js/main.js`. `30px` is the
   wider-screen entry distance, `14px` is the phone entry distance, and `260` is the entry duration.
 - Moving-outline speed: search for `.media-selection-indicator` in `assets/css/styles.css`.
+- Orbit speed: change `18s` in `.orbit-node`. Keep the same duration on all four nodes to preserve
+  the collision-safe phase relationship.
+- Orbit appearance: adjust `.orbit-node` and `.orbit-node-companion`; keep the companion smaller and
+  dimmer than the primary node.
+- Orbit curve: keep the `offset-path` ellipse and animate only `offset-distance`. Adding `left` or
+  `top` checkpoints again would make the browser approximate the curve and can reintroduce a wiggle.
 
 Change one value at a time and test desktop, phone, and reduced-motion mode afterward. Avoid hiding
 content directly in HTML because that would remove the progressive fallback.
@@ -116,7 +149,3 @@ The later idea where the Hero or Projects panel stays fixed while its inner cont
 called a **pinned section**, **sticky panel**, or **scrollytelling** interaction. It should first be
 prototyped on one desktop transition. Phones, short screens, keyboard section links, and visitors who
 prefer reduced motion should retain normal document scrolling.
-
-The later hero-orbit idea can add two or three small nodes that move slowly along the existing
-ellipses. It should remain subtle, avoid looking like a loading spinner, and become static when the
-visitor prefers reduced motion.
