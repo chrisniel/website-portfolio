@@ -109,6 +109,76 @@ function loadSidebarArtwork() {
 loadSidebarArtwork();
 sidebarDesktopQuery.addEventListener("change", loadSidebarArtwork);
 
+const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+function setupEntranceMotion() {
+  if (reducedMotionQuery.matches || !("IntersectionObserver" in window)) return;
+
+  const targets = new Set();
+  const addTarget = (element, delay = 0, direction = "up") => {
+    if (!element) return;
+
+    element.dataset.reveal = direction;
+    element.style.setProperty("--reveal-delay", `${delay}ms`);
+    targets.add(element);
+  };
+
+  document.querySelectorAll("main .section").forEach((section) => {
+    const container = section.querySelector(":scope > .container");
+    if (!container) return;
+
+    if (container.classList.contains("hero-grid")) {
+      addTarget(container.querySelector(".hero-copy"));
+      return;
+    }
+
+    if (container.classList.contains("model-library-promo")) {
+      addTarget(container.querySelector(":scope > img"), 0, "left");
+      addTarget(container.querySelector(":scope > div"), 90, "right");
+      return;
+    }
+
+    const staggeredCards = container.querySelectorAll(".project-card, .skill-card");
+    if (staggeredCards.length > 0) {
+      addTarget(container.querySelector(".section-heading"));
+      staggeredCards.forEach((card, index) => addTarget(card, index * 150));
+      return;
+    }
+
+    addTarget(container);
+  });
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        entry.target.classList.add("is-revealed");
+        observer.unobserve(entry.target);
+      });
+    },
+    {
+      rootMargin: "0px 0px -8%",
+      threshold: 0.08,
+    }
+  );
+
+  window.requestAnimationFrame(() => {
+    targets.forEach((target) => observer.observe(target));
+  });
+}
+
+function setupHeroCardMotion() {
+  const heroArt = document.querySelector(".hero-art");
+  if (!heroArt || reducedMotionQuery.matches) return;
+
+  heroArt.classList.add("has-card-motion");
+  window.requestAnimationFrame(() => heroArt.classList.add("is-card-motion-ready"));
+}
+
+setupEntranceMotion();
+setupHeroCardMotion();
+
 const modelViewerScripts = new Map();
 
 function loadModelViewerScript(source) {
@@ -149,6 +219,24 @@ function setViewerLoading(viewer) {
   viewer.classList.add("is-viewer-loading");
 }
 
+function updateModelStatus(status, message, isLoading = false) {
+  status.replaceChildren(document.createTextNode(message));
+  status.classList.toggle("is-loading", isLoading);
+  status.setAttribute("aria-busy", String(isLoading));
+
+  if (!isLoading) return;
+
+  const dots = document.createElement("span");
+  dots.className = "loading-dots";
+  dots.setAttribute("aria-hidden", "true");
+
+  for (let index = 0; index < 3; index += 1) {
+    dots.append(document.createElement("span"));
+  }
+
+  status.append(dots);
+}
+
 function hideViewerWithoutInterruptingLoad(viewer) {
   if (!viewer) return;
 
@@ -160,7 +248,189 @@ function hideViewerWithoutInterruptingLoad(viewer) {
   setViewerVisibility(viewer, false);
 }
 
+const compactMediaQuery = window.matchMedia("(max-width: 42rem)");
+const mediaSwapTokens = new WeakMap();
+
+function prepareImage(source) {
+  if (!source) return Promise.resolve();
+
+  return new Promise((resolve) => {
+    const pendingImage = new Image();
+    let isSettled = false;
+
+    const finish = () => {
+      if (isSettled) return;
+      isSettled = true;
+      window.clearTimeout(safetyTimeout);
+      resolve();
+    };
+
+    const decodeOrFinish = () => {
+      if (typeof pendingImage.decode !== "function") {
+        finish();
+        return;
+      }
+
+      pendingImage.decode().catch(() => undefined).then(finish);
+    };
+
+    const safetyTimeout = window.setTimeout(finish, 900);
+    pendingImage.addEventListener("load", decodeOrFinish, { once: true });
+    pendingImage.addEventListener("error", finish, { once: true });
+    pendingImage.src = source;
+
+    if (pendingImage.complete) decodeOrFinish();
+  });
+}
+
+function cancelMediaAnimations(...elements) {
+  new Set(elements.filter(Boolean)).forEach((element) => {
+    element.getAnimations?.().forEach((animation) => animation.cancel());
+  });
+}
+
+async function finishAnimation(animation) {
+  if (!animation) return;
+
+  try {
+    await animation.finished;
+  } catch {
+    // A newer selection intentionally cancels the older animation.
+  }
+}
+
+async function transitionMedia({
+  stage,
+  outgoing,
+  update,
+  getIncoming,
+  source = "",
+  direction = 1,
+  mode = "slide",
+  animate = true,
+}) {
+  const token = Symbol("media-swap");
+  mediaSwapTokens.set(stage, token);
+
+  const canAnimate =
+    animate &&
+    !reducedMotionQuery.matches &&
+    typeof outgoing?.animate === "function";
+
+  if (!canAnimate) {
+    update();
+    return true;
+  }
+
+  if (source) await prepareImage(source);
+  if (mediaSwapTokens.get(stage) !== token) return false;
+
+  const isCompact = compactMediaQuery.matches;
+  const signedDirection = direction < 0 ? -1 : 1;
+  const exitTransform = mode === "slide"
+    ? isCompact
+      ? "translate3d(0, -8px, 0)"
+      : `translate3d(${-signedDirection * 18}px, 0, 0)`
+    : "none";
+
+  cancelMediaAnimations(outgoing);
+  await finishAnimation(
+    outgoing.animate(
+      [
+        { opacity: 1, transform: "translate3d(0, 0, 0)" },
+        { opacity: 0, transform: exitTransform },
+      ],
+      { duration: 120, easing: "ease-out", fill: "forwards" }
+    )
+  );
+
+  if (mediaSwapTokens.get(stage) !== token) {
+    cancelMediaAnimations(outgoing);
+    return false;
+  }
+
+  update();
+  const incoming = getIncoming();
+  cancelMediaAnimations(outgoing, incoming);
+
+  if (!incoming || typeof incoming.animate !== "function") return true;
+
+  const enterTransform = mode === "slide"
+    ? isCompact
+      ? "translate3d(0, 14px, 0)"
+      : `translate3d(${signedDirection * 30}px, 0, 0)`
+    : "none";
+
+  await finishAnimation(
+    incoming.animate(
+      [
+        { opacity: 0, transform: enterTransform },
+        { opacity: 1, transform: "translate3d(0, 0, 0)" },
+      ],
+      { duration: 260, easing: "cubic-bezier(0.22, 1, 0.36, 1)" }
+    )
+  );
+
+  return mediaSwapTokens.get(stage) === token;
+}
+
+function animateUpdatedCaption(caption) {
+  if (
+    !caption ||
+    reducedMotionQuery.matches ||
+    typeof caption.animate !== "function"
+  ) return;
+
+  cancelMediaAnimations(caption);
+  caption.animate(
+    [
+      { opacity: 0.45, transform: "translate3d(0, 6px, 0)" },
+      { opacity: 1, transform: "translate3d(0, 0, 0)" },
+    ],
+    { duration: 200, easing: "cubic-bezier(0.22, 1, 0.36, 1)" }
+  );
+}
+
+function createSelectionIndicator(container) {
+  if (!container) return () => {};
+
+  const indicator = document.createElement("span");
+  indicator.className = "media-selection-indicator";
+  indicator.setAttribute("aria-hidden", "true");
+  container.classList.add("has-selection-indicator");
+  container.append(indicator);
+
+  let selectedItem;
+  const moveTo = (item, shouldAnimate = true) => {
+    if (!item || item.hidden) return;
+
+    selectedItem = item;
+    indicator.classList.toggle("without-transition", !shouldAnimate);
+    indicator.style.setProperty("--indicator-x", `${item.offsetLeft}px`);
+    indicator.style.setProperty("--indicator-y", `${item.offsetTop}px`);
+    indicator.style.width = `${item.offsetWidth}px`;
+    indicator.style.height = `${item.offsetHeight}px`;
+    indicator.classList.add("is-ready");
+
+    if (!shouldAnimate) {
+      window.requestAnimationFrame(() => indicator.classList.remove("without-transition"));
+    }
+  };
+
+  if ("ResizeObserver" in window) {
+    const resizeObserver = new ResizeObserver(() => moveTo(selectedItem, false));
+    resizeObserver.observe(container);
+  } else {
+    window.addEventListener("resize", () => moveTo(selectedItem, false));
+  }
+
+  return moveTo;
+}
+
 document.querySelectorAll("[data-media-carousel]").forEach((carousel) => {
+  const stage = carousel.querySelector(".media-carousel-stage");
+  const caption = carousel.querySelector(".media-carousel-caption");
+  const rail = carousel.querySelector(".media-carousel-rail");
   const image = carousel.querySelector("[data-media-image]");
   const video = carousel.querySelector("[data-media-video]");
   const title = carousel.querySelector("[data-media-title]");
@@ -172,6 +442,7 @@ document.querySelectorAll("[data-media-carousel]").forEach((carousel) => {
   const items = Array.from(carousel.querySelectorAll("[data-media-item]"));
 
   if (
+    !stage ||
     !image ||
     !video ||
     !title ||
@@ -184,11 +455,21 @@ document.querySelectorAll("[data-media-carousel]").forEach((carousel) => {
   ) return;
 
   let activeIndex = Math.max(items.findIndex((item) => item.classList.contains("is-active")), 0);
+  const moveIndicator = createSelectionIndicator(rail);
 
-  const selectMedia = (nextIndex, shouldScroll = true) => {
+  const selectMedia = async (
+    nextIndex,
+    shouldScroll = true,
+    directionHint,
+    shouldAnimate = true
+  ) => {
+    const previousIndex = activeIndex;
     activeIndex = (nextIndex + items.length) % items.length;
     const selectedItem = items[activeIndex];
     const mediaType = selectedItem.dataset.mediaType;
+    const direction = directionHint ?? (activeIndex >= previousIndex ? 1 : -1);
+    const outgoing = video.hidden ? image : video;
+    const nextSource = selectedItem.dataset.mediaSrc;
 
     video.pause();
 
@@ -197,29 +478,42 @@ document.querySelectorAll("[data-media-carousel]").forEach((carousel) => {
       item.classList.toggle("is-active", isSelected);
       item.setAttribute("aria-pressed", String(isSelected));
     });
+    moveIndicator(selectedItem, shouldAnimate);
 
-    title.textContent = selectedItem.dataset.mediaTitle;
-    description.textContent = selectedItem.dataset.mediaDescription;
-    kind.textContent = selectedItem.dataset.mediaKind;
+    const completed = await transitionMedia({
+      stage,
+      outgoing,
+      source: mediaType === "image" ? nextSource : "",
+      direction,
+      mode: outgoing === image && mediaType === "image" ? "slide" : "crossfade",
+      animate: shouldAnimate,
+      update: () => {
+        title.textContent = selectedItem.dataset.mediaTitle;
+        description.textContent = selectedItem.dataset.mediaDescription;
+        kind.textContent = selectedItem.dataset.mediaKind;
 
-    if (mediaType === "video") {
-      const nextSource = selectedItem.dataset.mediaSrc;
+        if (mediaType === "video") {
+          image.hidden = true;
+          video.hidden = false;
+          video.poster = selectedItem.dataset.mediaPoster || "";
 
-      image.hidden = true;
-      video.hidden = false;
-      video.poster = selectedItem.dataset.mediaPoster || "";
+          if (video.dataset.loadedSource !== nextSource) {
+            video.src = nextSource;
+            video.dataset.loadedSource = nextSource;
+            video.load();
+          }
+        } else {
+          video.hidden = true;
+          image.hidden = false;
+          image.src = nextSource;
+          image.alt = selectedItem.dataset.mediaAlt;
+        }
+      },
+      getIncoming: () => (mediaType === "video" ? video : image),
+    });
 
-      if (video.dataset.loadedSource !== nextSource) {
-        video.src = nextSource;
-        video.dataset.loadedSource = nextSource;
-        video.load();
-      }
-    } else {
-      video.hidden = true;
-      image.hidden = false;
-      image.src = selectedItem.dataset.mediaSrc;
-      image.alt = selectedItem.dataset.mediaAlt;
-    }
+    if (!completed) return;
+    animateUpdatedCaption(caption);
 
     if (shouldScroll) {
       const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -236,56 +530,91 @@ document.querySelectorAll("[data-media-carousel]").forEach((carousel) => {
     item.addEventListener("click", () => selectMedia(index));
   });
 
-  previousButton.addEventListener("click", () => selectMedia(activeIndex - 1));
-  nextButton.addEventListener("click", () => selectMedia(activeIndex + 1));
+  previousButton.addEventListener("click", () => selectMedia(activeIndex - 1, true, -1));
+  nextButton.addEventListener("click", () => selectMedia(activeIndex + 1, true, 1));
 
-  selectMedia(activeIndex, false);
+  selectMedia(activeIndex, false, 1, false);
 });
 
 document.querySelectorAll("[data-project-gallery]").forEach((gallery) => {
   const stage = gallery.querySelector("[data-gallery-stage]");
   const image = stage?.querySelector("[data-gallery-image]");
   const closeModelButton = stage?.querySelector("[data-close-model]");
-  const choices = gallery.querySelectorAll("[data-gallery-mode]");
+  const choices = Array.from(gallery.querySelectorAll("[data-gallery-mode]"));
+  const thumbnails = gallery.querySelector(".gallery-thumbnails");
 
   if (!stage || !image || choices.length === 0) return;
 
-  choices.forEach((choice) => {
-    choice.addEventListener("click", () => {
+  const moveIndicator = createSelectionIndicator(thumbnails);
+  const initialChoice = choices.find((choice) => choice.classList.contains("is-active"));
+  moveIndicator(initialChoice, false);
+
+  choices.forEach((choice, choiceIndex) => {
+    choice.addEventListener("click", async () => {
+      const previousChoice = choices.find((item) => item.classList.contains("is-active"));
+      const previousIndex = Math.max(choices.indexOf(previousChoice), 0);
+      const direction = choiceIndex >= previousIndex ? 1 : -1;
+
       choices.forEach((item) => {
         const isSelected = item === choice;
         item.classList.toggle("is-active", isSelected);
         item.setAttribute("aria-pressed", String(isSelected));
       });
+      moveIndicator(choice);
 
       const mode = choice.dataset.galleryMode;
       const viewer = stage.querySelector("model-viewer");
+      const outgoing = viewer && !viewer.hidden && !viewer.classList.contains("is-viewer-loading")
+        ? viewer
+        : image;
 
       if (mode === "model") {
-        stage.classList.remove("is-image-mode");
-        image.src = choice.dataset.gallerySrc;
-        image.alt = choice.dataset.galleryAlt;
+        const showViewer = stage.dataset.modelReady === "true" && viewer;
+        await transitionMedia({
+          stage,
+          outgoing,
+          source: showViewer ? "" : choice.dataset.gallerySrc,
+          direction,
+          mode: outgoing === image && !showViewer ? "slide" : "crossfade",
+          update: () => {
+            stage.classList.remove("is-image-mode");
+            image.src = choice.dataset.gallerySrc;
+            image.alt = choice.dataset.galleryAlt;
 
-        if (stage.dataset.modelReady === "true" && viewer) {
-          image.hidden = true;
-          setViewerVisibility(viewer, true);
-          if (closeModelButton) closeModelButton.hidden = false;
-          stage.classList.add("is-model-ready");
-        } else {
-          image.hidden = false;
-          if (closeModelButton) closeModelButton.hidden = true;
-          stage.classList.remove("is-model-ready");
-        }
+            if (showViewer) {
+              image.hidden = true;
+              setViewerVisibility(viewer, true);
+              if (closeModelButton) closeModelButton.hidden = false;
+              stage.classList.add("is-model-ready");
+            } else {
+              image.hidden = false;
+              hideViewerWithoutInterruptingLoad(viewer);
+              if (closeModelButton) closeModelButton.hidden = true;
+              stage.classList.remove("is-model-ready");
+            }
+          },
+          getIncoming: () => (showViewer ? viewer : image),
+        });
         return;
       }
 
-      stage.classList.add("is-image-mode");
-      stage.classList.remove("is-model-ready");
-      image.hidden = false;
-      image.src = choice.dataset.gallerySrc;
-      image.alt = choice.dataset.galleryAlt;
-      hideViewerWithoutInterruptingLoad(viewer);
-      if (closeModelButton) closeModelButton.hidden = true;
+      await transitionMedia({
+        stage,
+        outgoing,
+        source: choice.dataset.gallerySrc,
+        direction,
+        mode: outgoing === image ? "slide" : "crossfade",
+        update: () => {
+          stage.classList.add("is-image-mode");
+          stage.classList.remove("is-model-ready");
+          image.hidden = false;
+          image.src = choice.dataset.gallerySrc;
+          image.alt = choice.dataset.galleryAlt;
+          hideViewerWithoutInterruptingLoad(viewer);
+          if (closeModelButton) closeModelButton.hidden = true;
+        },
+        getIncoming: () => image,
+      });
     });
   });
 });
@@ -323,24 +652,37 @@ document.querySelectorAll("[data-model-showcase]").forEach((stage) => {
     loadButton.disabled = false;
     loadButton.textContent = "Try loading the 3D model again";
     closeModelButton.hidden = true;
-    status.textContent = message;
+    updateModelStatus(status, message);
   };
 
-  closeModelButton.addEventListener("click", () => {
+  closeModelButton.addEventListener("click", async () => {
     const viewer = stage.querySelector("model-viewer");
     const modelChoice = stage
       .closest("[data-project-gallery]")
       ?.querySelector('[data-gallery-mode="model"]');
+    const posterSource = modelChoice?.dataset.gallerySrc || stage.dataset.modelPoster;
 
-    setViewerVisibility(viewer, false);
-    image.hidden = false;
-    image.src = modelChoice?.dataset.gallerySrc || stage.dataset.modelPoster;
-    image.alt = modelChoice?.dataset.galleryAlt || stage.dataset.modelAlt;
-    stage.classList.remove("is-model-ready", "is-image-mode");
-    closeModelButton.hidden = true;
-    loadButton.disabled = false;
-    loadButton.textContent = "Open interactive 3D model";
-    status.textContent = "The model remains loaded in this tab and can be reopened instantly.";
+    await transitionMedia({
+      stage,
+      outgoing: viewer,
+      source: posterSource,
+      mode: "crossfade",
+      update: () => {
+        setViewerVisibility(viewer, false);
+        image.hidden = false;
+        image.src = posterSource;
+        image.alt = modelChoice?.dataset.galleryAlt || stage.dataset.modelAlt;
+        stage.classList.remove("is-model-ready", "is-image-mode");
+        closeModelButton.hidden = true;
+        loadButton.disabled = false;
+        loadButton.textContent = "Open interactive 3D model";
+        updateModelStatus(
+          status,
+          "The model remains loaded in this tab and can be reopened instantly."
+        );
+      },
+      getIncoming: () => image,
+    });
   });
 
   loadButton.addEventListener("click", async () => {
@@ -352,16 +694,24 @@ document.querySelectorAll("[data-model-showcase]").forEach((stage) => {
       existingViewer?.dataset.modelSource === requestedSource &&
       existingViewer.dataset.modelLoaded === "true"
     ) {
-      image.hidden = true;
-      setViewerVisibility(existingViewer, true);
-      stage.classList.add("is-model-ready");
-      stage.classList.remove("is-image-mode");
-      closeModelButton.hidden = false;
+      await transitionMedia({
+        stage,
+        outgoing: image,
+        mode: "crossfade",
+        update: () => {
+          image.hidden = true;
+          setViewerVisibility(existingViewer, true);
+          stage.classList.add("is-model-ready");
+          stage.classList.remove("is-image-mode");
+          closeModelButton.hidden = false;
+        },
+        getIncoming: () => existingViewer,
+      });
       return;
     }
 
     loadButton.disabled = true;
-    status.textContent = "Preparing the 3D viewer…";
+    updateModelStatus(status, "Preparing the 3D viewer", true);
 
     try {
       await loadModelViewerScript(stage.dataset.modelScript);
@@ -380,10 +730,10 @@ document.querySelectorAll("[data-model-showcase]").forEach((stage) => {
           if (viewer.dataset.modelSource !== stage.dataset.modelSrc) return;
 
           const progress = Math.round(event.detail.totalProgress * 100);
-          status.textContent = `Loading 3D model… ${progress}%`;
+          updateModelStatus(status, `Loading 3D model ${progress}%`, true);
         });
 
-        viewer.addEventListener("load", () => {
+        viewer.addEventListener("load", async () => {
           clearModelLoadTimeout();
           viewer.dataset.modelLoaded = "true";
           const isCurrentModel = viewer.dataset.modelSource === stage.dataset.modelSrc;
@@ -394,11 +744,22 @@ document.querySelectorAll("[data-model-showcase]").forEach((stage) => {
             ?.querySelector("[data-gallery-mode].is-active");
 
           if (isCurrentModel && activeChoice?.dataset.galleryMode === "model") {
-            image.hidden = true;
-            setViewerVisibility(viewer, true);
-            closeModelButton.hidden = false;
-            stage.classList.add("is-model-ready");
-            status.textContent = "3D model ready. Drag to rotate and scroll or pinch to zoom.";
+            await transitionMedia({
+              stage,
+              outgoing: image,
+              mode: "crossfade",
+              update: () => {
+                image.hidden = true;
+                setViewerVisibility(viewer, true);
+                closeModelButton.hidden = false;
+                stage.classList.add("is-model-ready");
+                updateModelStatus(
+                  status,
+                  "3D model ready. Drag to rotate and scroll or pinch to zoom."
+                );
+              },
+              getIncoming: () => viewer,
+            });
           } else {
             setViewerVisibility(viewer, false);
             closeModelButton.hidden = true;
@@ -425,7 +786,7 @@ document.querySelectorAll("[data-model-showcase]").forEach((stage) => {
       image.hidden = false;
       closeModelButton.hidden = true;
       stage.classList.remove("is-model-ready", "is-image-mode");
-      status.textContent = "Loading 3D model… 0%";
+      updateModelStatus(status, "Loading 3D model 0%", true);
 
       clearModelLoadTimeout();
       modelLoadTimeoutId = window.setTimeout(() => {
@@ -443,7 +804,10 @@ document.querySelectorAll("[data-model-showcase]").forEach((stage) => {
     } catch {
       clearModelLoadTimeout();
       loadButton.disabled = false;
-      status.textContent = "The 3D viewer could not load. Check your internet connection and try again.";
+      updateModelStatus(
+        status,
+        "The 3D viewer could not load. Check your internet connection and try again."
+      );
     }
   });
 });
@@ -456,7 +820,6 @@ document.querySelectorAll("[data-model-library]").forEach((library) => {
   const angleChoices = Array.from(gallery?.querySelectorAll("[data-model-angle-choice]") ?? []);
   const loadButton = stage?.querySelector("[data-load-model]");
   const status = stage?.querySelector("[data-model-status]");
-  const stageImage = stage?.querySelector("[data-gallery-image]");
   const closeButton = stage?.querySelector("[data-close-model]");
 
   if (
@@ -466,7 +829,6 @@ document.querySelectorAll("[data-model-library]").forEach((library) => {
     angleChoices.length === 0 ||
     !loadButton ||
     !status ||
-    !stageImage ||
     !closeButton
   ) return;
 
@@ -492,8 +854,6 @@ document.querySelectorAll("[data-model-library]").forEach((library) => {
     stage.dataset.modelPoster = selectedModel.dataset.modelPoster;
     stage.dataset.modelAlt = selectedModel.dataset.modelAlt;
     stage.dataset.modelReady = String(viewerMatches);
-    stage.classList.remove("is-model-ready", "is-image-mode");
-    hideViewerWithoutInterruptingLoad(viewer);
     closeButton.hidden = true;
 
     modelChoice.dataset.gallerySrc = selectedModel.dataset.modelPoster;
@@ -519,14 +879,14 @@ document.querySelectorAll("[data-model-library]").forEach((library) => {
       if (angleLabel) angleLabel.textContent = angleText || `Render ${angleNumber}`;
     });
 
-    stageImage.hidden = false;
-    stageImage.src = selectedModel.dataset.modelPoster;
-    stageImage.alt = selectedModel.dataset.modelAlt;
     loadButton.disabled = false;
     loadButton.textContent = viewerMatches ? "Open loaded 3D model" : "Load interactive 3D model";
-    status.textContent = viewerMatches
-      ? "This model remains loaded in this tab and can be reopened instantly."
-      : "The 3D file downloads only after you select this button.";
+    updateModelStatus(
+      status,
+      viewerMatches
+        ? "This model remains loaded in this tab and can be reopened instantly."
+        : "The 3D file downloads only after you select this button."
+    );
 
     setText("[data-model-viewer-title]", selectedModel.dataset.modelTitle);
     setText("[data-model-detail-title]", selectedModel.dataset.modelTitle);

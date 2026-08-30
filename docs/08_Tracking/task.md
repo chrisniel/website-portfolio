@@ -2,23 +2,59 @@
 
 ## Current Delivery Status
 
-**Published version is live; the first feedback polish is implemented and verified locally.** Chris
-confirmed the GitHub Pages release works and supplied feedback from multiple Windows laptops, a Mac
-laptop, and a phone. The local revision improves scaled-laptop hero sizing, illustration alignment
-and visual affordance, section anchors, and project-detail actions. It is not committed or published.
+**Published version is live; the committed gallery motion is stable and hero orbit nodes are
+implemented on `develop`.** Chris committed the verified gallery work at `4ef2d93`, then approved a
+smaller decorative orbit pass before the separate scrollytelling experiment. Live review found a
+small wiggle in the first checkpoint-based orbit movement; the path is now continuous and awaits
+Chris's visual confirmation before the orbit pass is considered ready.
 
 ## Current Goal
 
-Apply a small evidence-based responsive polish to the published static portfolio without changing
-its architecture, personality, project claims, or optional later-content backlog.
+Have Chris visually verify the corrected continuous, collision-safe hero orbits before the separate
+scrollytelling experiment begins.
 
 ## In Progress
 
-- Chris: review the local feedback revision at normal desktop width, 125–150% scaling if available,
-  and phone width.
-- Do not commit or push the follow-up until Chris gives a separate approval.
+- Chris: verify the corrected orbit speed, visual weight, spacing at line crossings, and phone
+  appearance.
+- Keep Motion.dev and scrollytelling deferred as separate work.
+- Do not commit, push, merge, or publish the experiment without Chris's separate approval.
 
 ## Completed
+
+- Replaced the reported 16-checkpoint orbit wiggle with a continuous CSS ellipse that animates only
+  `offset-distance`, while retaining static fallback positions for older browsers.
+- Verified four continuous paths, no animated layout coordinates, at least 102px measured separation,
+  containment and no overflow at five responsive widths, plus four static reduced-motion positions.
+- Added two decorative nodes per existing hero ellipse with a primary/companion hierarchy.
+- Used one 18-second period, opposite partners, and a 2.1-second cross-path phase to prevent visible
+  collisions; after smoothing, measured approximately 147px desktop and 115px phone clearance
+  through a complete cycle.
+- Added four distinct static reduced-motion positions and kept every node non-focusable,
+  pointer-transparent, and inside an `aria-hidden` parent.
+- Verified no overflow or escaped node at 320px, 390px, 768px, 1024px, and 1440px widths.
+
+- Added directional desktop still-image swaps and shorter vertical phone swaps to the BantayGabi
+  game carousel and 3D render gallery, with caption feedback and preloading safety.
+- Added latest-selection-wins cancellation so rapid clicks finish on the newest choice.
+- Kept the live 3D viewer on crossfades for ready, open, and close changes; its canvas is never slid.
+- Added one decorative, reduced-motion-aware active outline per preview group while retaining
+  button semantics and the existing non-JavaScript active-border fallback.
+- Verified desktop, 390px phone, rapid selection, static render, simulated viewer, reduced-motion,
+  JavaScript, CSS, version, localhost, and Git-whitespace behavior.
+- Preserved Chris's tuned 1000-millisecond section transition and 150-millisecond card stagger.
+
+- Added dependency-free one-time section reveals, desktop/card staggering, a restrained hero-card
+  settle, button gradient transitions, and pointer-only project/skill hover lift.
+- Added readable 3D loading text with three decorative jumping dots and `aria-busy` state; success,
+  error, retry, model selection, and reopening continue to clear the loading treatment.
+- Replaced the BantayGabi library-promotion gate poster with the large residential-house render and
+  gave the image and copy a paired desktop reveal that becomes a simple vertical reveal on smaller
+  screens.
+- Verified a true 390px emulated viewport has no horizontal overflow; reduced-motion mode leaves all
+  content visible and creates no entrance-motion state.
+- Recorded Chris's pinned-section/scrollytelling concept as a later desktop-first prototype rather
+  than expanding the current animation pass.
 
 - Published and verified `https://chrisniel.github.io/website-portfolio/`; the homepage, three detail
   pages, shared CSS/JavaScript, and a representative GLB responded successfully after deployment.
@@ -176,8 +212,8 @@ These are optional later tasks, not unfinished work from the current delivery.
 - Add the first approved BantayGabi gameplay video and poster to the prepared carousel.
 - Replace the supplied development captures with HUD-free versions if cleaner screenshots are
   recorded later; the current captures are acceptable for launch.
-- Consider one restrained scroll-reveal effect after publication; Motion or any other new dependency
-  requires separate approval first.
+- Prototype the approved pinned-section/scrollytelling idea as a separate desktop-first experiment,
+  with normal document flow on phones, short screens, and reduced-motion setups.
 - Consider a slow, reduced-motion-aware timed sidebar crossfade after publication; the first release
   intentionally keeps one image stable until the next page load.
 
