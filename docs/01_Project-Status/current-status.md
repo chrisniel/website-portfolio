@@ -1,10 +1,11 @@
 # Current Project Status
 
-Updated: 2026-08-30
+Updated: 2026-08-31
 
 ## Working
 
 - Responsive single-page static portfolio.
+- Public GitHub Pages deployment at `https://chrisniel.github.io/website-portfolio/`.
 - Desktop side navigation and mobile menu.
 - Light and dark themes.
 - Real CV-backed project, skill, About, experience, and education content.
@@ -33,13 +34,13 @@ Updated: 2026-08-30
 
 ## Not Implemented
 
-- GitHub Pages publication.
 - Custom domain.
 - Analytics, backend, database, contact form, authentication, or admin dashboard.
 
-## Before First Publication
+## Post-Publication Notes
 
-- Push `main` to the configured `origin` repository and enable GitHub Pages.
+- The public site is built from `main` and `/(root)` through GitHub Pages. Future pushes to `main`
+  publish the next approved version automatically.
 - The five GLBs can be published in their current click-to-load form; a later texture pass remains a
   recommended performance improvement rather than a launch blocker.
 - The game repositories have been inspected. Public media still requires per-asset ownership,
@@ -52,6 +53,12 @@ Updated: 2026-08-30
 
 ## Latest Delivery
 
+- Added a responsive hero adjustment for scaled or short laptop viewports, top-aligned the desktop
+  illustration, and kept its sticky movement contained to the hero section.
+- Changed homepage project destinations into clear internal-navigation buttons and reduced the
+  control-like appearance of the decorative **Forms / Play / Build** cards.
+- Verified the published URL and then checked the local feedback revision through controlled
+  desktop, scaled-laptop, short-laptop, and emulated phone captures.
 - Added one stable randomized desktop-sidebar image, a compact portfolio-focus block, and consistent
   navigation across the homepage and all three detail pages.
 - Corrected the phone-menu width, aligned the desktop brand and theme controls, and returned keyboard
@@ -64,6 +71,6 @@ Updated: 2026-08-30
 - GitHub Pages asset handling was corrected so the public GLBs are not stored through Git LFS.
 - Eight supplied WebP game captures and four additional house GLBs were integrated into the public
   BantayGabi pages.
-- Automated browser interaction remains unavailable in the local tool environment; static,
-  structural, syntax, privacy, and localhost checks are used alongside Chris's completed manual
-  desktop and phone verification.
+- Headless Edge viewport emulation now supplements static, structural, syntax, privacy, localhost,
+  and Chris's physical-device checks; external CDN and final hosted behavior are still rechecked
+  after each approved publication.

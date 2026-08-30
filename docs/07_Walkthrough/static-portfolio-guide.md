@@ -117,6 +117,25 @@ On phone widths, the open navigation is anchored to the header's right edge with
 width. This keeps all five links readable instead of sizing the menu from the small group of header
 buttons. The desktop sidebar artwork keeps its existing treatment; no additional image mask is used.
 
+## Understand The Responsive Hero And Project Actions
+
+The homepage hero uses three related layouts rather than detecting a visitor's monitor size:
+
+- Spacious desktops keep the full two-column introduction and illustration.
+- Scaled or shorter laptops keep two columns but use a smaller headline, tighter spacing, and a
+  shorter illustration. The illustration follows the page only while the hero is still visible.
+- At `68rem` and below, the illustration returns to normal document flow beneath the introduction.
+
+This is controlled entirely by CSS viewport width and height. Operating-system scaling such as
+125% or 150% reduces the browser's effective CSS viewport, so the laptop rules activate naturally
+without JavaScript or device detection.
+
+The **Forms / Play / Build** cards are decorative labels, not buttons. Their flatter visual style and
+reduced rotation help distinguish them from the dotted-underlined technical terms that can actually
+be selected. The BantayGabi and Minecraft destinations remain normal `<a>` links because they
+navigate to another page, but CSS presents them as clear project-action buttons. Kumpuni has no
+button until an honest detail page is available.
+
 ## Update The First 3D Showcase
 
 - The first model and poster are connected from `projects/bantaygabi-models.html`.
@@ -143,6 +162,14 @@ No cache file needs to be created manually. Normal browser caching will be used 
 - Open the phone menu at 320px, 375px, 390px, and 430px widths and confirm the full panel stays
   inside the viewport with readable **Background** and **Contact** links.
 - Confirm the sidebar image and focus block are absent after the navigation changes into a top bar.
+- At a normal desktop width, confirm the hero illustration begins near the orange hero label.
+- At 125% and 150% browser or display scaling, confirm the hero headline remains readable and the
+  illustration does not drop beneath the introduction unexpectedly.
+- Scroll within the desktop hero and confirm the illustration follows briefly, then leaves when the
+  Projects section arrives.
+- On a phone, confirm **View project details** and **View case study** are obvious full-width links.
+- Open a direct section link such as `index.html#projects` and confirm the sticky header does not
+  cover the section heading.
 - Press `Tab` repeatedly and confirm the focused link or button has a visible outline.
 - Press `Escape` while the mobile menu is open and confirm it closes.
 - Confirm no project, contact, or social link is presented as real before Chris supplies it.

@@ -1114,3 +1114,65 @@ captures include development HUD elements, and the Compact House underside remai
 face/material issue for a later Blender correction. The hosted GitHub Pages URL still needs one
 post-publication verification. Chris subsequently authorized the local commit; no push or
 publication occurred in this review.
+
+## Post-Launch Responsive Feedback Polish — 2026-08-31
+
+### Goal And Evidence
+
+Refine the published homepage after feedback from a normal 1080p desktop, scaled Windows laptops,
+a Mac laptop, and a physical phone. Preserve the approved visual identity while preventing the hero
+heading and illustration from feeling oversized or vertically disconnected when operating-system
+display scaling reduces the browser's effective CSS viewport.
+
+The screenshots also show two interaction expectations worth correcting: the underlined project
+name resembles an external promotional link on mobile, and the raised **Forms / Play / Build**
+illustration cards look clickable even though the hero artwork is decorative.
+
+### Affected Files And Approach
+
+- `index.html`: group project statuses and detail links into clear action rows, rename links to
+  task-oriented labels, and preserve semantic anchors for navigation.
+- `assets/css/styles.css`: add a wide-but-constrained laptop/short-screen hero adjustment, top-align
+  and contain the sticky hero artwork, refine the hero type hierarchy, flatten the decorative art
+  cards, and give project-detail links a recognizable button treatment.
+- All four public HTML pages: advance the shared asset version so the published site requests the
+  corrected stylesheet immediately after the next push.
+- Tracking, walkthrough, and changelog files: record the behavior and beginner-friendly manual test.
+
+No framework, JavaScript interaction, dependency, backend, analytics, or new public media is needed.
+
+### Acceptance Checks
+
+- At spacious desktop widths, the hero remains two-column and visually consistent with the release.
+- At 125–150% scaling or a short laptop viewport, the headline is smaller, the artwork starts near
+  the hero eyebrow, and the artwork follows only within the hero section.
+- At 1088px and below, the existing stacked layout remains static; phones do not receive sticky
+  artwork or a new horizontal overflow path.
+- The introduction is slightly more prominent without competing with the headline.
+- Decorative hero cards no longer use the strongest raised-control treatment and remain excluded
+  from keyboard focus and assistive-technology navigation.
+- BantayGabi and Minecraft use clear internal-navigation buttons; Kumpuni retains only its honest
+  development status until a detail page exists.
+- Project actions remain readable, tappable, and wrapping-safe at 320–430px phone widths.
+- HTML semantics and references, JavaScript syntax, CSS structure, responsive geometry, shared
+  versions, localhost resources, and Git whitespace checks pass.
+
+### Scope Boundary
+
+This delivery addresses only evidence from the first public feedback round. Motion effects, timed
+slideshows, new project media, content expansion, and model optimization remain separate later work.
+Do not commit, push, or republish without Chris's next explicit approval.
+
+### Delivery Result
+
+Implemented locally with no dependency or JavaScript change. The hero now uses a measured
+wide/short-laptop adjustment, the illustration top-aligns and sticks only within its desktop hero,
+and its internal cards use a flatter decorative treatment. Homepage project destinations are clear
+button-styled links, while Kumpuni retains only its development status. Mobile section anchors now
+account for the sticky header.
+
+Source and localhost checks passed. Headless Edge captures were reviewed at 1920×1024, 1536×864,
+1280×720, and an emulated 390×844 phone. The phone reported `innerWidth` and `scrollWidth` of 390px
+with no overflow. At 1536×864, the artwork moved from 77px at page start to its 32px sticky inset,
+then left the viewport with the hero boundary. The changes remain uncommitted and unpublished for
+Chris's browser review.

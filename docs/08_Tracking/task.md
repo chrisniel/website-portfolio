@@ -2,24 +2,35 @@
 
 ## Current Delivery Status
 
-**Final pre-publication examination and local verification complete; the release candidate is
-committed locally and ready for Chris to push.** Chris confirmed the current desktop and mobile
-experience is working correctly. The complete review found no blocking code, security, privacy,
-copy, responsive, or release-readiness issue. Push and publication remain manual later steps.
+**Published version is live; the first feedback polish is implemented and verified locally.** Chris
+confirmed the GitHub Pages release works and supplied feedback from multiple Windows laptops, a Mac
+laptop, and a phone. The local revision improves scaled-laptop hero sizing, illustration alignment
+and visual affordance, section anchors, and project-detail actions. It is not committed or published.
 
 ## Current Goal
 
-Make the existing static portfolio ready for its first public release. Future gameplay video and
-Kumpuni media remain optional later additions, not launch blockers.
+Apply a small evidence-based responsive polish to the published static portfolio without changing
+its architecture, personality, project claims, or optional later-content backlog.
 
 ## In Progress
 
-- The authorized local commit is ready. Do not push or enable GitHub Pages; Chris will push manually.
-- After publication, verify the hosted GitHub Pages URL on desktop and phone because localhost tests
-  cannot confirm the final public hosting path or CDN behavior.
+- Chris: review the local feedback revision at normal desktop width, 125–150% scaling if available,
+  and phone width.
+- Do not commit or push the follow-up until Chris gives a separate approval.
 
 ## Completed
 
+- Published and verified `https://chrisniel.github.io/website-portfolio/`; the homepage, three detail
+  pages, shared CSS/JavaScript, and a representative GLB responded successfully after deployment.
+- Added the post-launch scaled-laptop/short-screen hero treatment without changing the existing
+  desktop-sidebar or stacked tablet/phone architecture.
+- Top-aligned the hero illustration, contained its sticky position to the desktop hero, and flattened
+  the decorative cards so they make a weaker promise of click interaction.
+- Replaced the ambiguous promotional-style project links with semantic, button-styled **View project
+  details** and **View case study** actions; Kumpuni remains correctly unlinked.
+- Added the sticky-header section-anchor offset for tablet and phone layouts.
+- Passed controlled responsive captures, phone overflow metrics, sticky-boundary measurements,
+  semantic/reference checks, JavaScript syntax, CSS balance, localhost HTTP, and Git whitespace.
 - Completed the authorized final top-to-bottom review of all four public pages, shared CSS and
   JavaScript, public assets, model mappings, documentation, Git configuration, and working-tree diff.
 - Proofread the visitor-facing copy and tightened the marketing, contact-privacy, and model workflow
@@ -163,7 +174,6 @@ These are optional later tasks, not unfinished work from the current delivery.
 - Reduce the BantayGabi models' embedded textures to the planned 1K size and re-test them.
 - Add Kumpuni media and a detail page when approved assets exist.
 - Add the first approved BantayGabi gameplay video and poster to the prepared carousel.
-- Send the final GitHub Pages URL, then record the hosted desktop/phone verification result.
 - Replace the supplied development captures with HUD-free versions if cleaner screenshots are
   recorded later; the current captures are acceptable for launch.
 - Consider one restrained scroll-reveal effect after publication; Motion or any other new dependency

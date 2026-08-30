@@ -92,7 +92,7 @@ contents of the five model cards. When testing a JavaScript change, use `Ctrl+F5
 does not reuse an older cached copy.
 
 Each public HTML page also adds the same small version query to the shared CSS and JavaScript URLs,
-for example `main.js?v=20260830-7`. The query does not create another file or need a backend. It tells
+for example `main.js?v=20260831-1`. The query does not create another file or need a backend. It tells
 the browser that this release should be downloaded separately from an older cached copy. When a
 future code delivery changes either shared file, update both version values on all four HTML pages.
 

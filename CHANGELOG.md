@@ -2,6 +2,36 @@
 
 All notable project changes are recorded here.
 
+## 2026-08-31 — Post-Launch Responsive Feedback Polish
+
+### Changed
+
+- Added a compact hero treatment for scaled Windows laptops, shorter desktop viewports, and similar
+  Mac laptop layouts without changing the existing single-column breakpoint.
+- Reduced the hero headline modestly, increased the introduction's prominence, and aligned the
+  illustration with the hero eyebrow instead of centering it beside wrapped text.
+- Made the illustration sticky only inside the desktop hero and returned it to normal document flow
+  when the layout stacks.
+- Flattened and reduced the rotation of the decorative **Forms / Play / Build** cards so they are
+  less likely to be mistaken for controls.
+- Replaced promotional-looking project text links with clear **View project details** and
+  **View case study** navigation buttons; the anchors remain semantic links.
+- Added a mobile anchor offset so direct section links do not hide headings beneath the sticky top
+  navigation.
+- Updated all four pages to matching `?v=20260831-1` shared asset URLs.
+
+### Verified
+
+- Captured and visually reviewed the homepage at 1920×1024, 1536×864, 1280×720, and an emulated
+  390×844 phone viewport.
+- Confirmed the phone layout has a 390px layout width, a 390px document width, and no overflowing
+  elements; the project navigation button remains full-width and tappable.
+- Measured the scaled-laptop hero illustration at its normal start, sticky position, and section
+  boundary; it follows within the hero and leaves with the hero as intended.
+- Passed JavaScript syntax, balanced CSS, four-page IDs and local references, seven representative
+  localhost responses, shared-version consistency, removed-label checks, and Git whitespace checks.
+- No commit, push, or GitHub Pages update was performed in this delivery.
+
 ## 2026-08-30 — Final Pre-Publication Examination
 
 ### Fixed And Refined
